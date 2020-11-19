@@ -21,8 +21,8 @@ Vue.prototype.$buttonList = [
   { text: 'Quasar', URL: 'http://www.quasarchs.com/' },
   { text: 'Github', URL: 'https://github.com/972784674t/vue-quasar-manage' },
   { text: 'Gitee', URL: 'https://gitee.com/incimo/vue-quasar-manage' },
-  { text: '关于作者/捐赠', URL: '/cimo' },
-  { text: '972784674@qq.com' }
+  { text: '捐赠', URL: '/cimo' },
+  { text: '关于作者', URL: '/cimo' }
 ]
 
 export default Vue

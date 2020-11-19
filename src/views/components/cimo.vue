@@ -7,7 +7,7 @@
       <div class="row justify-center">
        <q-img width="450px" src="./data/pay.png"/>
       </div>
-      <p></p>
+      <p>972784674@qq.com</p>
       <q-parallax :height="150">
         <template v-slot:media>
           <video width="720" height="450" poster="https://cdn.quasar.dev/img/polina.jpg" autoplay loop muted>
