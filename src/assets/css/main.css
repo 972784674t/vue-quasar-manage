@@ -1,0 +1,27 @@
+html {
+    height: 100%;
+    box-sizing: border-box;
+    color: #2c3e50;
+}
+body,
+#app{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow: hidden;
+    font-family: 'Roboto', '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+.app-main{
+    width: 100%;
+    position: relative;
+}
+.echarts{
+    width: 100% !important;
+    height: 100% !important;
+}
+.main-content{
+    height: calc(100vh - 85px);
+    background-color: #fcfcff;
+}
