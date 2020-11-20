@@ -1,5 +1,5 @@
 <template>
-  <q-layout :view="viewStyle" class="bg-grey-1">
+  <q-layout :view="viewStyle" class="bg-grey-1 full-height">
 
     <!-- 头部 -->
     <q-header class="q-py-xs bg-white text-grey-8" height-hint="48"
@@ -34,7 +34,7 @@
     </q-drawer>
 
     <!-- 内容路由 -->
-    <q-page-container class="app-main">
+    <q-page-container class="app-main full-height">
 
       <transition name="fade-transform" mode="out-in">
         <keep-alive :max="Max_keepAlive" :include="keepAliveList">
