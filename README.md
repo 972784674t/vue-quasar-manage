@@ -26,7 +26,7 @@ vue-quasar-manage 是一款中后台前端解决方案：
 [gitee 国内用户访问](http://incimo.gitee.io/vue-quasar-manage)
 
 ### 如何运行
-请确保您的计算机环境已经安装了 Node.js 以及 git，当前项目主要用于展示说明文档
+请确保您的计算机环境已经安装了 ```Node.js``` 以及 ```git```，当前项目主要用于展示说明文档
 
 建议使用模板项目 [vue-quasar-manage-template](https://github.com/972784674t/vue-quasar-manage-template)  进行开发。
 
