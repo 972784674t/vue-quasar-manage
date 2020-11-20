@@ -11,18 +11,18 @@ vue-quasar-manage 是一款中后台前端解决方案：
 - 基于 [vue](https://cn.vuejs.org/) 和 [quasar-ui](http://www.quasarchs.com/) 实现，[quasar-ui](http://www.quasarchs.com/) 的设计规范来自 [material design](https://material.io/)
 - 包含动态路由，动态缓存，权限验证
 - 响应式设计，支持手机/平板/小分辨率屏幕显示
-- 包含 tagView 快捷导航、面包屑导航等后台项目常用功能
+- 包含 tagView 快捷导航、面包屑导航等 SPA 应用常用功能
 - 内置 material design 图标集
-- 简单的代码逻辑，多组自定义组件，高度可定制性
+- 简单的代码逻辑，多种自定义组件，高度可定制性（只有 1600 行代码）
 - 完全开源及免费
 
-使用这个项目前您需要了解（了解就行）如下技术栈：
+使用这个项目前您需要了解如下技术栈：
 
-[ES6](https://es6.ruanyifeng.com/)，[Node.js](https://nodejs.org/en/) ，[webpack](https://www.webpackjs.com/)，[vue](https://cn.vuejs.org/)、[vuex](https://vuex.vuejs.org/zh/)、[vue-router](https://router.vuejs.org/zh/) 、[vue-cli](https://cli.vuejs.org/zh/) 、[axios](http://www.axios-js.com/)
+[ES6](https://es6.ruanyifeng.com/)，[Node.js](https://nodejs.org/en/) ，[webpack](https://www.webpackjs.com/)，[vue](https://cn.vuejs.org/)，[vuex](https://vuex.vuejs.org/zh/)，[vue-router](https://router.vuejs.org/zh/) ，[vue-cli](https://cli.vuejs.org/zh/) ，[axios](http://www.axios-js.com/)
 ### 界面展示
-在开始项目之前，请确保您对有一定的了解
+
 ### 如何运行
-请确保您的计算机环境已经安装了 Node，当前项目主要用于展示说明文档，建议使用模板项目 [vue-quasar-manage-template](https://github.com/972784674t/vue-quasar-manage-template)  进行开发。
+请确保您的计算机环境已经安装了 Node.js 以及 git，当前项目主要用于展示说明文档，建议使用模板项目 [vue-quasar-manage-template](https://github.com/972784674t/vue-quasar-manage-template)  进行开发。
 
 1、克隆项目
 ```sh
