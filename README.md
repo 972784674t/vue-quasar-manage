@@ -21,11 +21,14 @@ vue-quasar-manage 是一款中后台前端解决方案：
 [ES6](https://es6.ruanyifeng.com/)，[Node.js](https://nodejs.org/en/) ，[webpack](https://www.webpackjs.com/)，[vue](https://cn.vuejs.org/)，[vuex](https://vuex.vuejs.org/zh/)，[vue-router](https://router.vuejs.org/zh/) ，[vue-cli](https://cli.vuejs.org/zh/) ，[axios](http://www.axios-js.com/)
 ### DEMO地址
 
-[github](https://972784674t.github.io/vue-quasar-manage/)
+[github](https://972784674t.github.io/vue-quasar-manage/)  
+
 [gitee 国内用户访问](http://incimo.gitee.io/vue-quasar-manage)
 
 ### 如何运行
-请确保您的计算机环境已经安装了 Node.js 以及 git，当前项目主要用于展示说明文档，建议使用模板项目 [vue-quasar-manage-template](https://github.com/972784674t/vue-quasar-manage-template)  进行开发。
+请确保您的计算机环境已经安装了 Node.js 以及 git，当前项目主要用于展示说明文档
+
+建议使用模板项目 [vue-quasar-manage-template](https://github.com/972784674t/vue-quasar-manage-template)  进行开发。
 
 1、克隆项目
 ```sh
