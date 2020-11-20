@@ -18,17 +18,20 @@ vue-quasar-manage 是一款中后台前端解决方案：
 
 使用这个项目前您需要了解如下技术栈：
 
-[ES6](https://es6.ruanyifeng.com/)，[Node.js](https://nodejs.org/en/) ，[webpack](https://www.webpackjs.com/)，[vue](https://cn.vuejs.org/)，[vuex](https://vuex.vuejs.org/zh/)，[vue-router](https://router.vuejs.org/zh/) ，[vue-cli](https://cli.vuejs.org/zh/) ，[axios](http://www.axios-js.com/)
+[ES6](https://es6.ruanyifeng.com/) | [Node.js](https://nodejs.org/en/) | [webpack](https://www.webpackjs.com/) | [vue](https://cn.vuejs.org/) | [vuex](https://vuex.vuejs.org/zh/) | [vue-router](https://router.vuejs.org/zh/) | [vue-cli](https://cli.vuejs.org/zh/) | [axios](http://www.axios-js.com/)
 ### DEMO地址
 
-[github](https://972784674t.github.io/vue-quasar-manage/)  
+[Github](https://972784674t.github.io/vue-quasar-manage/) | [Gitee 国内用户访问](http://incimo.gitee.io/vue-quasar-manage)
 
-[gitee 国内用户访问](http://incimo.gitee.io/vue-quasar-manage)
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1120/235753_52e04d8f_5663937.png "home.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1120/235645_43a6f8ea_5663937.png "屏幕截图.png")
 
 ### 如何运行
-请确保您的计算机环境已经安装了 ```Node.js``` 以及 ```git```，当前项目主要用于展示说明文档
+请确保您的计算机已经安装了 ```Node.js``` 以及 ```git```，当前项目主要用于展示说明文档
 
 建议使用模板项目 [vue-quasar-manage-template](https://github.com/972784674t/vue-quasar-manage-template)  进行开发。
+
 
 1、克隆项目
 ```sh
