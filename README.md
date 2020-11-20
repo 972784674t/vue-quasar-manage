@@ -8,11 +8,11 @@
 </p>
 
 vue-quasar-manage 是一款中后台前端解决方案：
-- 基于 [vue](https://cn.vuejs.org/) 和 [quasar-ui](http://www.quasarchs.com/) 实现，[quasar-ui](http://www.quasarchs.com/) 的设计规范来自 [material design](https://material.io/)
-- 包含动态路由，动态缓存，权限验证
-- 响应式设计，支持手机/平板/小分辨率屏幕显示
+- 基于 [vue](https://cn.vuejs.org/) 和 [quasar-ui](http://www.quasarchs.com/) 实现，[quasar-ui](http://www.quasarchs.com/) 的设计规范来自 [Material Design](https://material.io/)
+- 包含动态路由，动态缓存，权限验证等常用功能
+- 响应式设计，支持手机 / 平板 / 小分辨率屏幕显示
 - 包含 tagView 快捷导航、面包屑导航等 SPA 应用常用功能
-- 内置 material design 图标集
+- 内置 Material Design 图标集
 - 简单的代码逻辑，多种自定义组件，高度可定制性（只有 1600 行代码）
 - 完全开源及免费
 
