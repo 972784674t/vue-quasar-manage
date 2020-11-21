@@ -1,6 +1,6 @@
 const timeStamp = new Date().getTime()
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/vue-quasar-manage/' : './',
+  publicPath: process.env.NODE_ENV === 'production' ? '/vue-quasar-manage/' : '/',
   devServer: {
     port: 8868
   },
