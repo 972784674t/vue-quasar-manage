@@ -16,7 +16,7 @@ export default {
   methods: {
     getMsg () {
       const query = {
-        url: './data/markdownData.md',
+        url: this.$PUBLIC_PATH + 'data/markdownData.md',
         method: 'get',
         responseType: 'text'
       }

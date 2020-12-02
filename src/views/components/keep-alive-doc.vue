@@ -20,7 +20,7 @@ export default {
   methods: {
     getMsg () {
       const query = {
-        url: './data/keepAliveData.md',
+        url: this.$PUBLIC_PATH + 'data/keepAliveData.md',
         method: 'get',
         responseType: 'text'
       }

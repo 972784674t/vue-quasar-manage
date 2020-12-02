@@ -61,8 +61,6 @@ export default {
       isLottieF: false
     }
   },
-
-  // 第四步：定义方法
   methods: {
 
     play () {
@@ -83,7 +81,7 @@ export default {
 
     getMsg () {
       const query = {
-        url: './data/lottieData.md',
+        url: this.$PUBLIC_PATH + 'data/lottieData.md',
         method: 'get',
         responseType: 'text'
       }

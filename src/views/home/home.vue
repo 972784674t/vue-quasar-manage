@@ -77,14 +77,12 @@
         <div class="col-xs-12 col-md-3">
           <q-card class="my-card cimo-shadow">
             <q-img
-              src="https://cdn.pixabay.com/photo/2015/05/12/09/33/bird-763769_1280.jpg"
+              :src="this.$PUBLIC_PATH + 'data/bird.jpg'"
             />
-
             <q-card-section>
               <div class="text-overline text-orange-9">Overline</div>
               <div class="text-h5 q-mt-sm q-mb-xs">Title</div>
             </q-card-section>
-
             <q-card-actions>
               <q-btn flat color="dark" label="Share"/>
               <q-btn flat color="primary" label="Book"/>

@@ -20,7 +20,7 @@ export default {
   methods: {
     getMsg () {
       const query = {
-        url: './data/loadingBarData.md',
+        url: this.$PUBLIC_PATH + 'data/loadingBarData.md',
         method: 'get',
         responseType: 'text'
       }

@@ -2,10 +2,10 @@
   <base-content>
     <div class="base-markdown-content">
       <h2>1</h2>
-      <p>2020 恍如隔世，50次 commit，或许这是给 22 岁的自己一个交代吧。ambitions 架构师，冲！</p>
+      <p>2020 恍如隔世，60多次 commit，或许这是给 22 岁的自己一个交代吧。ambitions 架构师，冲！</p>
       <p>如果您觉得这个项目对您有帮助，可以请作者吃一碗螺蛳粉表示鼓励</p>
       <div class="row justify-center">
-       <q-img width="450px" src="./data/pay.png"/>
+       <q-img width="450px" :src="this.$PUBLIC_PATH + 'data/pay.png'"/>
       </div>
       <p>972784674@qq.com</p>
       <q-parallax :height="150">
@@ -47,7 +47,7 @@
       <p></p>
       <h2>3</h2>
       <p>小技巧：</p>
-      <p>- 当前你在网络上找不到答案时，不妨去试试<a style="text-decoration: none" target="_blank" href="https://cn.vuejs.org/v2/api/"> Vue API </a>，自己探寻实现原理，找到解决方法。</p>
+      <p>- 当你在网络上找不到答案时，不妨去试试<a style="text-decoration: none" target="_blank" href="https://cn.vuejs.org/v2/api/"> Vue API </a>，自己探寻原理，找到解决方法。</p>
       <p>- 搞 IT，想要得到更及时的信息，或者不同的体验，科学上网尤为重要。</p>
       <p>- 请善用开发工具，比如 idea 用 ctrl + shift + f，全局搜索 tagView 就能找到相关代码。</p>
       <p>- icon 图标也是 svg 生成的文字，因此可以通过设置文字颜色来设置图标的颜色。</p>

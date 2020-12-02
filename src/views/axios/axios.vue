@@ -23,7 +23,7 @@ export default {
   methods: {
     getMsg () {
       const query = {
-        url: './data/axiosData.md',
+        url: this.$PUBLIC_PATH + 'data/axiosData.md',
         method: 'get',
         responseType: 'text'
       }

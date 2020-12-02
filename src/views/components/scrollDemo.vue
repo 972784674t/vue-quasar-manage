@@ -20,7 +20,7 @@ export default {
   methods: {
     getMsg () {
       const query = {
-        url: './data/scrollData.md',
+        url: this.$PUBLIC_PATH + 'data/scrollData.md',
         method: 'get',
         responseType: 'text'
       }

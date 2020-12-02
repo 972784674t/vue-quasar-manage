@@ -20,7 +20,7 @@ export default {
   methods: {
     getMsg () {
       const query = {
-        url: './data/tagViewData.md',
+        url: this.$PUBLIC_PATH + 'data/tagViewData.md',
         method: 'get',
         responseType: 'text'
       }

@@ -24,6 +24,9 @@ Vue.config.productionTip = false
 Vue.use(animated)
 Vue.use(jsonView)
 
+// 前往 public 文件夹的路径
+Vue.prototype.$PUBLIC_PATH = process.env.BASE_URL
+
 const vue = new Vue({
   router,
   store,

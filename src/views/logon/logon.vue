@@ -91,24 +91,30 @@ export default {
   methods: {
     logon () {
       this.loading = !this.loading
-      if (this.username === 'admin') {
+      if (this.username === 'admin' || this.username === 'test') {
         sessionStorage.setItem('access_token', 972784674)
-        sessionStorage.setItem('user_role', 'admin')
-      }
-      if (this.username === 'test') {
-        sessionStorage.setItem('access_token', 972784674)
-        sessionStorage.setItem('user_role', 'test')
-      }
-      this.timer = setTimeout(() => {
-        this.$router.push('/')
+        sessionStorage.setItem('user_role', this.username)
+        setTimeout(() => {
+          this.$router.push('/')
+          this.loading = !this.loading
+          this.$q.notify({
+            icon: 'insert_emoticon',
+            message: 'hi，cimo 欢迎回来',
+            color: 'green',
+            position: 'top',
+            timeout: 1500
+          })
+        }, Math.random() * 3000 + 1000)
+      } else {
         this.loading = !this.loading
         this.$q.notify({
-          message: 'hi，cimo 欢迎回来',
-          color: 'green',
+          icon: 'announcement',
+          message: '账号错误',
+          color: 'red',
           position: 'top',
           timeout: 1500
         })
-      }, Math.random() * 3000 + 1000)
+      }
     },
     handleFinish (e) {
       this.isLottieF = e

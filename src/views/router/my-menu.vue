@@ -20,7 +20,7 @@ export default {
   methods: {
     getMsg () {
       const query = {
-        url: './data/menuData.md',
+        url: this.$PUBLIC_PATH + 'data/menuData.md',
         method: 'get',
         responseType: 'text'
       }

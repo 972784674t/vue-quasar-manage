@@ -3,9 +3,9 @@ Lottie 是能将 json 格式的动画文件，渲染成为能在前端显示的�
 
 而这些 json 格式的动画文件通常来自于 After Effects 渲染的动画特效。设计师们在 After Effects 上完成动画后，通过 After Effects 上的 Bodymovin 插件就能把动画生成为json格式。
 
-Lottie 的动效长用在动态图标，开屏展示等需要用户交互体验比较高的地方。
+Lottie 的动效常用在动态图标，开屏展示等需要用户交互体验比较高的地方。
 
-通过它还提供了 js/android/ios 等不同环境的开发工具包，在不同的环境下都能愉快的使用动效
+同时它还提供了 js/android/ios 等不同环境的开发工具包，在不同的环境下都能愉快的使用动效
 ### Github 仓库
 - [lottie-web](https://github.com/airbnb/lottie-web)
 - [lottie-ios](https://github.com/airbnb/lottie-ios)

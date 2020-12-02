@@ -33,7 +33,7 @@
 
           <div class="column items-center">
             <q-avatar size="72px">
-              <img src="https://972784674t.github.io/vue-quasar-manage/data/avatar.jpg">
+              <img :src="this.$PUBLIC_PATH + 'data/avatar.jpg'">
             </q-avatar>
 
             <div class="text-subtitle1 q-mt-md q-mb-xs">Hi！ CIMO</div>
@@ -49,7 +49,7 @@
         </div>
       </q-menu>
       <q-avatar size="26px">
-        <img src="https://972784674t.github.io/vue-quasar-manage/data/avatar.jpg">
+        <img :src="this.$PUBLIC_PATH + 'data/avatar.jpg'">
       </q-avatar>
       <q-tooltip>账号</q-tooltip>
     </q-btn>

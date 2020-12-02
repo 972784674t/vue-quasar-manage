@@ -127,7 +127,7 @@ export default {
 
     getMsg () {
       const query = {
-        url: './data/iconData.md',
+        url: this.$PUBLIC_PATH + 'data/iconData.md',
         method: 'get',
         responseType: 'text'
       }
