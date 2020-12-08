@@ -7,10 +7,7 @@ import 'echarts/lib/chart/bar'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/chart/line'
 import 'echarts/lib/component/polar'
-import _echarts from 'echarts'
+import 'echarts/lib/chart/pie'
 
 // 注册 ECharts
 Vue.component('v-chart', ECharts)
-Vue.prototype.$echarts = _echarts
-
-export default Vue

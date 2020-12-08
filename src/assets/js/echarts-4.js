@@ -1,4 +1,5 @@
-import echarts from 'echarts'
+const echarts = require('echarts/lib/echarts')
+
 const option = {
   backgroundColor: '#fff',
   grid: {

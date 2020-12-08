@@ -6,5 +6,3 @@ import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js'
 
 VMdEditor.use(vuepressTheme)
 Vue.use(VMdEditor)
-
-export default Vue

@@ -1,6 +1,3 @@
-import index from '../views/index'
-import layout from '../components/Layout/layout'
-import home from '../views/home/home.vue'
 
 /**
  * 需要授权访问的路由
@@ -15,7 +12,7 @@ const asyncRoutesChildren = [
       icon: 'home',
       keepAlive: true
     },
-    component: home
+    component: () => import('../views/home/home')
   },
   {
     path: '/start',
@@ -26,7 +23,7 @@ const asyncRoutesChildren = [
       icon: 'blur_on',
       keepAlive: true
     },
-    component: layout,
+    component: () => import('../components/Layout/layout'),
     children: [
       {
         path: 'getting-started',
@@ -64,9 +61,20 @@ const asyncRoutesChildren = [
     ]
   },
   {
+    path: '/optimization',
+    name: 'optimization',
+    meta: {
+      roles: ['admin', 'test'],
+      title: '性能优化',
+      icon: 'memory',
+      keepAlive: true
+    },
+    component: () => import('../views/router/optimization')
+  },
+  {
     path: '/component',
     name: 'component',
-    component: layout,
+    component: () => import('../components/Layout/layout'),
     meta: {
       roles: ['admin', 'test'],
       title: '组件说明',
@@ -125,7 +133,7 @@ const asyncRoutesChildren = [
         name: 'icon',
         meta: {
           roles: ['admin', 'editor'],
-          title: 'icon',
+          title: 'icon 集合',
           icon: 'api',
           keepAlive: false
         },
@@ -186,7 +194,7 @@ const asyncRoutesChildren = [
       icon: 'filter_3',
       keepAlive: true
     },
-    component: layout,
+    component: () => import('../components/Layout/layout'),
     children: [
       {
         path: 'menu-2',
@@ -197,7 +205,7 @@ const asyncRoutesChildren = [
           icon: 'filter_2',
           keepAlive: true
         },
-        component: layout,
+        component: () => import('../components/Layout/layout'),
         children: [
           {
             path: 'menu-3',
@@ -272,7 +280,7 @@ const asyncRoutes = [
     path: '/',
     name: 'index',
     redirect: '/',
-    component: index,
+    component: () => import('../views/index'),
     meta: {
       // index 应该是所有的用户都可以访问
       roles: ['admin', 'editor', 'test']
