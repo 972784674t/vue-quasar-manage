@@ -22,9 +22,7 @@ axios.interceptors.request.use(
           config.transformRequest = [data => { return 'args=' + JSON.stringify(data) }]
           break
         default:
-          config.headers = {
-            'Content-Type': 'application/json'
-          }
+          break
       }
     }
     return config
