@@ -18,7 +18,7 @@ vue-quasar-manage 是一款中后台前端解决方案：
 
 使用这个项目前您需要了解如下技术栈：
 
-[ES6](https://es6.ruanyifeng.com/) | [Node.js](https://nodejs.org/en/) | [webpack](https://www.webpackjs.com/) | [vue](https://cn.vuejs.org/) | [vuex](https://vuex.vuejs.org/zh/) | [vue-router](https://router.vuejs.org/zh/) | [vue-cli](https://cli.vuejs.org/zh/) | [axios](http://www.axios-js.com/)
+[ES6](https://es6.ruanyifeng.com/) | [Node.js](https://nodejs.org/en/) | [webpack](https://www.webpackjs.com/) | [vue](https://cn.vuejs.org/) | [vuex](https://vuex.vuejs.org/zh/) | [vue-router](https://router.vuejs.org/zh/) | [vue-cli](https://cli.vuejs.org/zh/) | [axios](http://www.axios-js.com/) | [ESlint](https://eslint.bootcss.com/)
 ### DEMO地址
 
 [Github](https://972784674t.github.io/vue-quasar-manage/) | [Gitee 国内用户访问](http://incimo.gitee.io/vue-quasar-manage)
@@ -28,7 +28,11 @@ vue-quasar-manage 是一款中后台前端解决方案：
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1120/235645_43a6f8ea_5663937.png "屏幕截图.png")
 
 ### 更新日志
-- 2020/12/3 将```public```文件夹路径注入```vue```原型，方便静态资源引用
+- *2020/12/3*    
+将```public```文件夹路径注入```vue```原型，方便静态资源引用
+- *2020/12/9*    
+更新到 v1.0.3 beta 版本，进行了性能优化。```Github```/```Gitee```的首屏加载速度得到较大的提升。 ```Gitee```访问从原先的 3.5s 左右，提升到 1s 左右。但```Github```访问收网络影响...此次更新将优化过程新增到```性能优化```导航项提供参考。
+
 
 ### 如何运行
 请确保您的计算机已经安装了 ```Node.js``` 以及 ```git```，当前项目主要用于展示说明文档
@@ -58,4 +62,3 @@ npm run build
 Copyright (c) 2015-present Razvan Stoenescu
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
-
