@@ -95,14 +95,15 @@ export default {
         sessionStorage.setItem('access_token', 972784674)
         sessionStorage.setItem('user_role', this.username)
         setTimeout(() => {
-          this.$router.push('/')
-          this.loading = !this.loading
-          this.$q.notify({
-            icon: 'insert_emoticon',
-            message: 'hi，cimo 欢迎回来',
-            color: 'green',
-            position: 'top',
-            timeout: 1500
+          this.$router.push('/').then(e => {
+            this.$q.notify({
+              icon: 'insert_emoticon',
+              message: 'hi，cimo 欢迎回来',
+              color: 'green',
+              position: 'top',
+              timeout: 1500
+            })
+            this.loading = !this.loading
           })
         }, Math.random() * 3000 + 1000)
       } else {

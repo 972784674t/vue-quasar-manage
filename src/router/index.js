@@ -19,7 +19,7 @@ export function resetRouter () {
 
 // 定义创建路由方法，方便重置路由时调用
 const createRouter = () => new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   base: process.env.BASE_URL,
   routes: constantRoutes
 })

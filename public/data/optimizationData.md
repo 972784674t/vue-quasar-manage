@@ -1,11 +1,11 @@
 ## 体积性能优化
-最近发现项目在```github```上启动速度达到恐怖的 8 秒，在```gitee```的启动速度也很慢，3.04 秒，首页动画是通过 CDN 加载进来的，所以没有算在内，```github```8 秒，国外吧，那也没啥说的
+最近发现项目在```github```上启动速度达到恐怖的 8 秒，在```gitee```的启动速度也很慢，3.04 秒，首页动画是通过 CDN 加载进来的，所以没有算在内，```github```8秒，国外吧，那也没啥好说的
 
 但是```gitee```的启动速度 3.04 秒
 
-不得了，我强迫症犯了，就好比有人在我的耳边对我说：这个世界上根本没有奥特曼一样
+不得了，我强迫症犯了，就好比有人在我的耳边对我说：这个世界上根本没有奥特曼！！！
 
-难受，淦  o(ﾟДﾟ)っ！
+难受，淦 o(ﾟДﾟ)っ！
 
 本来想着项目在```github```/```gitee```上部署后，这两个网站都自带```GZIP```压缩了，所以打包时就用了最原始的打包方式，方便其他同学根据自己的需求自定义打包配置。好家伙，咩想到这么慢。
 
@@ -24,13 +24,14 @@
 | 5.05 MB（路由懒加载失败 ） | 2 MB （没有按需引入） | 1MB（路由懒加载失败） |
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201208235651994.gif#pic_center)
 
-### 找到问题后使用通用的优化方法就行优化，常规的性能优化一般有五种：
+### 找到问题后使用通用的优化方法进行优化，常规的性能优化一般有五种：
 
 1. 单组件 / UI 组件按需引入
 2. 路由懒加载
 3. 通过 CDN 获取资源，而不是将资源打包到项目中 
 4. 关闭```sourcemap```文件打包
 5. Gzip 压缩项目资源
+6. 对于字体等体积较大的静态资源，开启浏览器缓存
 
 ### 1、按需引入
 
@@ -94,12 +95,12 @@ Vue.component('v-chart', ECharts)
 module.exports = {
   configureWebpack: {
     externals: {
-      'echarts': 'echarts' // 不影响在项目中使用 import 引入 echarts
+      echarts : 'echarts' // 不影响在项目中使用 import 引入 echarts
     }
   }
 }
 ```
-CDN 不只能用在引入外部 js 资源，如果有 json 或 md 数据，也可以把它当做一个 OOS 使用。
+CDN 不只能用在引入外部 js 资源，如果有 json 或 md 数据，也可以把它当做一个 OOS 使用。甚至是创建自己的 CDN 服务器为自己服务，如果你对自己的服务器没有信心的话。
 ### 4、关闭```sourcemap```文件打包
 打包后生成的```sourcemap```文件的主要用来处理```chunk```文件映射，这样你的程序到生产环境运行时报错还能找到源码对应的位置，但既然是生产环境了，```sourcemap```文件也没啥用了
 ```js
@@ -115,13 +116,17 @@ module.exports = {
 
 首先需要引入```Webpack```的```Gzip```压缩插件，在```package.json```中插入
 
+```sh
+"compression-webpack-plugin": "^1.1.12"
+或
+npm i compression-webpack-plugin@1.1.12 --save-dev
+```
+
 :::tip
-别用太高版本的```compression-webpack-plugin```，会出现未知错误，本人深受其害，默认```npm```安装最新版，好家伙，花我半天去找问题。
+别用太高版本的```compression-webpack-plugin```，会出现未知错误，本人深受其害，当时默认```npm```安装最新版，好家伙，花我半天去找问题。
 :::
 
-```js
-"compression-webpack-plugin": "^1.1.12"
-```
+
 在```vue.config.js```中配置压缩规则：
 ```js
 module.exports = {
@@ -138,11 +143,11 @@ module.exports = {
       const CompressionPlugin = require('compression-webpack-plugin')
       config.plugins.push(
         new CompressionPlugin({
-          algorithm: 'gzip',
-          test: /\.(js|css|woff|woff2|svg)$/, // 那些文件会被压缩
+          algorithm: 'gzip',  // 
+          test: /\.(js|css|woff|woff2|svg)$/, // 哪些文件会被压缩
           threshold: 10240, // 对超过10k的数据压缩
-          deleteOriginalAssets: false, // 不删除源文件
-          minRatio: 0.8 // 压缩比
+          deleteOriginalAssets: false, // 不删除压缩前的文件，如果浏览器不支持 Gzip ,则会加载源文件
+          minRatio: 0.8 // 压缩比大于 0.8 的文件将不会被压缩
         })
       )
 
@@ -159,8 +164,8 @@ module.exports = {
 ```
 配置```Gzip```压缩之后，需要你的服务器支持```Gzip```格式文件（浏览器支持，服务器不一定默认支持）
 
-我用的比较多的是```Nginx```、```express```和```tomcat```，因此自列出这些服务器的配置方式，其他服务器都是异曲同工
-### Nginx 开启```Gzip```支持
+我用的比较多的是```Nginx```、```express```和```tomcat```，因此只列出这些服务器的配置方式，其他服务器都是异曲同工
+#### Nginx 开启```Gzip```支持
 在```conf/nginx.conf```中添加如下配置
 
 ```sh
@@ -178,29 +183,27 @@ module.exports = {
 }
 ```
 
-其中```gzip_types```的配置类型可以在```mime.types```文件里找到对应的类型，```mime.types```可以把它当做是浏览器支持的格式声明计划，因此修改其中的类型值，也是无用的
+对于```gzip_types```的配置项，可以在```mime.types```文件里找到对应的类型，```mime.types```可以把它当做是浏览器支持的格式声明，因此就算修改其中的类型值，也是无用的
 
 :::tip
-不过我在做某个项目时，在```mime.types```文件没有发现```ttf```格式文件的支持类型
-因此```ttf```压缩后的```Gzip```文件在服务器中并没有生效
-网络上虽然有使用```ttf```压缩的痕迹，但是都是一笔带过。还是自己太菜了......
+我在做某个项目时，压缩了```ttf```文件，然而在```mime.types```文件没有发现```ttf```格式文件的支持类型，看了一下浏览器中对于```ttf```格式的类型是```Content-Type: application/x-font-ttf```，因此```ttf```压缩后的```Gzip```文件在服务器中并没有生效。
+网络上虽然有```Ngnix```使用```Gzip```的```ttf```压缩痕迹，但是都是一笔带过。还是自己太菜了......
 :::
 
-### Express 开启```Gzip```支持
+#### Express 开启```Gzip```支持
 安装对应依赖
 ```js
 npm install compression --save
 ```
 在```app.js```中启用
 ```js
-var app = express()
 var compression = require('compression')
-var app = express();
+var app = express()
 // 启用gzip
-app.use(compression());
+app.use(compression())
 ```
 
-### Tomcat 开启```Gzip```支持
+#### Tomcat 开启```Gzip```支持
 修改 tomcat 8 的 ```server.xml```，找到默认端口的位置，在后面添加配置如下
 ```html
 <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"
@@ -208,8 +211,7 @@ app.use(compression());
 	compressableMimeType="text/html,text/xml,text/css,application/javascript,text/plain"/>
 ```
 
-#### 体积性能优化后的结果
-
+### 体积性能优化后的结果
 |  | 未优化 | 优化后 | Gzip 压缩后 |
 |--|--|--|--|--|
 | ````chunk-vendors.js````| 5.05 MB | 2.66 MB | 350 KB |
@@ -217,14 +219,28 @@ app.use(compression());
 | ````quasar````| 1MB | 294.62 KB | 44.39 KB |
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201208234226813.gif#pic_center)
-这一次的性能优化到这就结束了，来看看效果
+### 这一次的性能优化到这就结束了，来看看效果
+|  | 优化前 | 优化后 |
+|--|--|--|
+| ```Github```| 8s 左右 |3.5s 左右|
+| ```Gitee```| 3s 左右 | 1s 左右 |
 
-这是 v1.0.1 beta 版本在 gitee 上的请求速度，减去首屏动画 CDN 下载的耗时，速度在 3s 左右
+
+这是 v1.0.1 beta 版本的在```Gitee```上的访问速度，减去首屏动画 CDN 下载的耗时，速度在 3s 左右
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201209001308453.png#pic_center)
-这是本次优化之后，在我的 Ngnix 上部署后的效果
+性能优化后在```Gitee```上访问的速度：
 
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201209113921634.png#pic_center)
+可以看到响应时间从 3.76 s 提升到了 1.073 s （减去首屏动画 CDN 下载的耗时）
+
+性能优化后在```Github```上的访问速度
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201209113811473.png#pic_center)
+可以看到响应时间从 8 s 提升到了 3.57 s
+
+在我自己的 Express 部署，然后 Ngnix 转发后的速度，减去首屏动画 CDN 下载的耗时 167 ms，优化后的速度为 347 ms
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201209004210479.png#pic_center)
-从 3.76 s 到 541 ms
 
-### 那天我拿着手电筒照着迪迦奥特曼，助他战胜基里艾洛德星人
-### 我，也变成了光 ~ 
+### 那天我拿着手电筒对着电视照亮迪迦奥特曼的能量指示器，助他战胜基里艾洛德星人 ┗( ▔, ▔ )┛
+### 我，也变成了光 ~ ~
+

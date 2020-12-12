@@ -7,7 +7,7 @@ import { addTagView, setTagView } from '../components/TagView/tagViewUtils'
 import { setBreadcrumbs } from '../components/Breadcrumbs/breadcrumbsUtils'
 
 router.beforeEach((to, from, next) => {
-  // 成功登录后处理
+  // 成功登录后处理 TAGVIEW 和 面包屑
   handleTagViewAndBreadcrumbsAndKeepAlive(to)
   // 模拟获取 token
   const token = sessionStorage.getItem('access_token')
