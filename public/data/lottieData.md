@@ -23,7 +23,7 @@ Lottie 的动效常用在动态图标，开屏展示等需要用户交互体验�
 npm install  // or cnpm i
 ```
 ### 我根据自身的需求封装一个 lottie 组件
-使用了 quasar 里的节流函数，防止某些情况下重复的初始化 lottie
+
 :::tip
 尽量使用 path 导入动画文件，这样做能减小不必要的体积，而且能避免 lottie 重复执行动画
 :::
@@ -34,9 +34,6 @@ npm install  // or cnpm i
 
 <script>
 import lottie from 'lottie-web'
-// throttle 返回一个新的函数，新函数节流限制一定时间内一个函数可调用的最大次数。 
-// 即 “每X毫秒最多执行一次该功能”。
-import { throttle } from 'quasar'
 
 export default {
   name: 'lottie-web-cimo',
@@ -64,8 +61,9 @@ export default {
       this.lottie.setSpeed(this.animationSpeed)
     },
 
-    isLottieFinish: function (e) {
-      this.$emit('isLottieFinish', e)
+    isLottieFinish: function () {
+      // this.lottie.removeEventListener('data_ready', this.isLottieFinish)
+      this.$emit('isLottieFinish', true)
     },
 
     initLottie: function () {
@@ -74,18 +72,20 @@ export default {
         renderer: 'svg',
         loop: this.loop || true,
         animationData: this.animationData,
-        // 如果需要用到路径请求，请使用 path ; (如果 animationData 为空 ，则自动选择 path)
+        // 如果需要用到路径请求，请使用 path ，lottie 如果 animationData 为空 ，则自动选择 path
         path: this.path
       })
-      this.lottie.addEventListener('data_ready', () => { this.isLottieFinish(true) })
+
+      this.lottie.addEventListener('data_ready', this.isLottieFinish)
     }
 
   },
-  created () {
-    this.initLottie = throttle(this.initLottie, 1000)
-  },
   mounted () {
     this.initLottie()
+  },
+  beforeDestroy () {
+    this.lottie.destroy()
+    this.lottie = null
   },
   watch: {
     animationSpeed: function (n, o) {

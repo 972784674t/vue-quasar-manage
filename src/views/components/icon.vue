@@ -15,34 +15,13 @@
         <q-tab name="fontawesome-v5" label="fontawesome-v5 图标集"/>
         <q-tab name="htu" label="如何使用图标集合中的图标"/>
       </q-tabs>
-      <q-tab-panels v-model="tab" animated>
-        <q-tab-panel name="material Icons">
+      <q-tab-panels v-model="tab" animated style="overflow-y:visible">
 
-          <template v-for="(v,k,i) in materialIcons">
-            <q-icon
-              class="myIcon tag-read"
-              :name="v"
-              :key="k"
-              @click="copy(materialIcons_key[i])"
-            >
-              <q-tooltip>
-                {{materialIcons_key[i]}}
-              </q-tooltip>
-            </q-icon>
-          </template>
+        <q-tab-panel name="material Icons" id="mdtext">
 
         </q-tab-panel>
 
-        <q-tab-panel name="fontawesome-v5">
-          <template v-for="(v,k,i) in fontawesome">
-            <q-icon class="myIcon tag-read" :name="v" :key="k" @click="copy(fontawesome_key[i])">
-              <q-tooltip>
-                {{fontawesome_key[i]}}
-              </q-tooltip>
-            </q-icon>
-          </template>
-
-        </q-tab-panel>
+        <q-tab-panel name="fontawesome-v5" id="fatext" ></q-tab-panel>
 
         <q-tab-panel name="htu">
           <div class="base-markdown-content">
@@ -53,7 +32,6 @@
         </q-tab-panel>
 
       </q-tab-panels>
-
     </div>
   </base-content>
 </template>
@@ -62,49 +40,127 @@
 import BaseContent from '../../components/BaseContent/BaseContent'
 import * as materialIconsSet from '@quasar/extras/material-icons'
 import * as fontawesomeSet from '@quasar/extras/fontawesome-v5'
-import { underscore, hyphen, snake } from 'name-styles'
 import { copyToClipboard } from 'quasar'
-
 export default {
-  name: 'icon',
+  name: 'icon_3',
   components: { BaseContent },
   data () {
     return {
       tab: 'material Icons',
-      materialIcons: [],
       materialIcons_key: [],
-      fontawesome: [],
       fontawesome_key: [],
+      group_md: [],
+      group_fa: [],
+      timer1: {},
+      timer2: {},
       content: ''
     }
   },
   created () {
     this.initMaterial()
-    this.initFontawesome()
     this.getMsg()
+    window.copyIcon = this.copy
   },
   methods: {
-
-    // materialIcons图标集合初始化
+    // materialIcons 图标集合初始化
     initMaterial () {
-      // 获取materialIcons图标集合
-      this.materialIcons = materialIconsSet
-      const tMis = Object.keys(materialIconsSet)
-      // 获取图标materialIcons下划线格式命名集合
-      for (const j in tMis) {
-        this.materialIcons_key.push(snake(underscore(tMis[j]).replace(/(mat)/g, '')))
+      // 获取图标 materialIcons 下划线格式命名集合
+      for (const i in materialIconsSet) {
+        this.materialIcons_key.push(this.toLowerLine(i))
+      }
+      this.$nextTick(() => {
+        this.RenderMDIcon(0)
+      })
+    },
+    RenderMDIcon (i) {
+      if (i >= 1317) {
+        cancelAnimationFrame(this.timer1)
+      } else {
+        const fragment = document.createDocumentFragment()
+        for (let j = i; j < i + 1317; j++) {
+          const li = document.createElement('li')
+          li.innerText = this.materialIcons_key[j]
+          li.setAttribute('class', 'myIcon material-icons q-icon notranslate')
+          li.setAttribute('onclick', 'window.copyIcon(' + "'" + this.materialIcons_key[j] + "'" + ')')
+          fragment.appendChild(li)
+        }
+        i += 1317
+        document.getElementById('mdtext').appendChild(fragment)
+        this.timer1 = requestAnimationFrame(() => {
+          this.RenderMDIcon(i)
+        })
       }
     },
-
     // fontawesome图标集合初始化
     initFontawesome () {
-      this.fontawesome = fontawesomeSet
-      const tMis = Object.keys(fontawesomeSet)
-      for (const j in tMis) {
-        this.fontawesome_key.push(hyphen(tMis[j]).replace(/-/, ' fa-'))
+      // 获取图标 fontawesomeSet 下划线格式命名集合
+      for (const i in fontawesomeSet) {
+        this.fontawesome_key.push(this.toLowerLine(i))
+      }
+      this.$nextTick(() => {
+        this.RenderFAIcon(0)
+      })
+    },
+    RenderFAIcon (i) {
+      if (i > 1601) {
+        cancelAnimationFrame(this.timer2)
+      } else {
+        const fragment = document.createDocumentFragment()
+        for (let j = i; j < 1601; j++) {
+          const li = document.createElement('li')
+          li.setAttribute('class', 'myIcon ' + this.fontawesome_key[j] + ' q-icon notranslate')
+          li.setAttribute('onclick', 'window.copyIcon(' + "'" + this.fontawesome_key[j] + "'" + ')')
+          fragment.appendChild(li)
+        }
+        document.getElementById('fatext').appendChild(fragment)
+        this.timer2 = requestAnimationFrame(() => {
+          this.RenderFAIcon(i + 1601)
+        })
       }
     },
-
+    // 驼峰转下划线
+    toLowerLine (str) {
+      if (str.substr(0, 3) === 'mat') {
+        let t = str.replace(/([A-Z]|\d+)/g, (a, l) => `_${l.toLowerCase()}`).substring(4)
+        switch (t) {
+          case 'crop_32':
+            t = 'crop_3_2'
+            break
+          case 'crop_169':
+            t = 'crop_16_9'
+            break
+          case 'crop_54':
+            t = 'crop_5_4'
+            break
+          case 'crop_75':
+            t = 'crop_7_5'
+            break
+          default:
+            break
+        }
+        return t
+      }
+      if (str.substr(0, 2) === 'fa') {
+        let t = str.replace(/([A-Z])/g, (a, l) => `-${l.toLowerCase()}`).replace(/-/, ' fa-')
+        switch (t) {
+          case 'fab500px':
+            t = 'fab fa-500px'
+            break
+          case 'fas fa-stopwatch20':
+            t = 'fas fa-stopwatch-20'
+            break
+          case 'fab fa-font-awesome-logo-full':
+            t = 'fas fa-stopwatch-20'
+            break
+          case 'far fa-font-awesome-logo-full':
+            t = 'fas fa-stopwatch-20'
+            break
+          default:
+            break
+        }
+        return t
+      }
+    },
     // 复制成功
     copy (e) {
       copyToClipboard(e).then(() => {
@@ -124,7 +180,6 @@ export default {
         })
       })
     },
-
     getMsg () {
       const query = {
         url: this.$PUBLIC_PATH + 'data/iconData.md',
@@ -135,21 +190,33 @@ export default {
         this.content = res.data
       })
     }
-
+  },
+  watch: {
+    tab (n, o) {
+      if (n === 'material Icons') {
+        this.initMaterial()
+      }
+      if (n === 'fontawesome-v5') {
+        this.initFontawesome()
+      }
+    }
+  },
+  beforeDestroy () {
+    window.copyIcon = null
+    clearTimeout(this.timer2)
+    clearTimeout(this.timer1)
   }
 }
 </script>
-<style lang="css" scoped>
+<style lang="css">
   .myIcon {
     padding: 15px;
-    height: 35px;
-    width: 35px;
+    font-size: 35px;
     color: #363F45;
+    cursor: pointer;
   }
-
   .myIcon:hover {
     background: #EDECEC;
-    cursor: pointer;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
   }
 </style>

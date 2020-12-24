@@ -69,7 +69,31 @@ const asyncRoutesChildren = [
       icon: 'memory',
       keepAlive: true
     },
-    component: () => import('../views/router/optimization')
+    component: () => import('../components/Layout/layout'),
+    children: [
+      {
+        path: 'VolumeOptimization',
+        name: 'VolumeOptimization',
+        meta: {
+          roles: ['admin', 'editor'],
+          title: '体积优化',
+          icon: 'miscellaneous_services',
+          keepAlive: true
+        },
+        component: () => import('../views/optimization/optimization')
+      },
+      {
+        path: 'renderOptimization',
+        name: 'renderOptimization',
+        meta: {
+          roles: ['admin', 'editor'],
+          title: '渲染性能优化',
+          icon: 'flip',
+          keepAlive: true
+        },
+        component: () => import('../views/optimization/renderOptimization')
+      }
+    ]
   },
   {
     path: '/component',
@@ -135,7 +159,7 @@ const asyncRoutesChildren = [
           roles: ['admin', 'editor'],
           title: 'icon 集合',
           icon: 'api',
-          keepAlive: false
+          keepAlive: true
         },
         component: () => import('../views/components/icon')
       },
@@ -146,7 +170,7 @@ const asyncRoutesChildren = [
           roles: ['admin', 'test'],
           title: 'loading-bar',
           icon: 'rotate_right',
-          keepAlive: true
+          keepAlive: false
         },
         component: () => import('../views/components/loading-bar')
       },

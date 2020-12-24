@@ -20,13 +20,14 @@ import {
   QMenu,
   ClosePopup,
   Ripple,
-  AppFullscreen
+  AppFullscreen,
+  QSpinnerGrid
 } from 'quasar'
 
 Vue.use(Quasar,
   {
     config: {},
-    components: { /* not needed if importStrategy is not 'manual' */ },
+    components: { QSpinnerGrid },
     directives: { ClosePopup, Ripple },
     plugins: {
       LoadingBar,

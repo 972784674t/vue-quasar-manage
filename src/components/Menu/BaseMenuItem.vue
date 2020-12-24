@@ -4,7 +4,6 @@
    initLevel ： 菜单初始化缩进等级
    bgColorLevel ：菜单背景色
    basePath : 上级菜单
-   author ： ths
 -->
 <template>
     <div>
@@ -20,12 +19,13 @@
 
                 <!-- 没有孩子 -->
                 <q-item v-if="!item.children" exact
+                   clickable
+                   v-ripple
                   :key="index"
                   :class="bgColor + '-' + bgColorLevel"
                   :inset-level="initLevel"
+                   active-class="baseItemActive"
                   :to="handleLink(basePath, item.path)"
-                  clickable
-                  v-ripple
                   @click="externalLink(basePath, item.path)"
                 >
                   <q-item-section avatar>
@@ -50,7 +50,7 @@
                     <base-menu-item
                       :my-router="item.children"
                       :init-level="initLevel + 0.2"
-                      :bg-color-level="bgColorLevel+1"
+                      :bg-color-level="bgColorLevel + 1"
                       :bg-color="bgColor"
                       :base-path="basePath === undefined ? item.path : basePath + '/' + item.path"
                     />
@@ -102,3 +102,15 @@ export default {
   }
 }
 </script>
+<style lang="sass">
+  .baseItemActive
+    color: #1976d2
+  .baseItemActive:after
+    content: ''
+    position: absolute
+    width: 3px
+    height: 100%
+    background: #1976d2
+    top: -0.5px
+    right: 0px
+</style>

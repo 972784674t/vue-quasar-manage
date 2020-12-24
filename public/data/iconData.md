@@ -25,10 +25,15 @@ import '@quasar/extras/mdi-v4/mdi-v4.css'
 需要为 ```<q-icon name="arrow_upward"/>``` 才能正确使用
 ### 如果你想制作一个图标集合界面，就需要对导出的图标集合名词进行修改，使用正则是最方便的修改方式
 ```js
-// 下面是针对 fontawesome-v5 图标集的修改
+// 下面是针对 material 和 fontawesome-v5 图标集的修改
 // 驼峰转 - 连接,并且添加' fa-'前缀
-toLineForFa (name) {
-  return name.replace(/([A-Z]|[0-9])/g, '-$1').toLowerCase().replace(/-/, ' fa-')
+toLowerLine (str) {
+  if (str.substr(0, 3) === 'mat') {
+    return str.replace(/([A-Z]|\d+)/g, (a, l) => `_${l.toLowerCase()}`).substring(4)
+  }
+  if (str.substr(0, 2) === 'fa') {
+    return str.replace(/([A-Z]|\d+)/g, (a, l) => `-${l.toLowerCase()}`).replace(/-/, ' fa-')
+  }
 }
 ```
 
