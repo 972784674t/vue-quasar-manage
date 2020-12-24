@@ -49,6 +49,7 @@
       <p>小技巧：</p>
       <p>- 当你在网络上找不到答案时，不妨去试试<a style="text-decoration: none" target="_blank" href="https://cn.vuejs.org/v2/api/"> Vue API </a>，自己探寻原理，找到解决方法。</p>
       <p>- 搞 IT，想要得到更及时的信息，或者不同的体验，科学上网尤为重要。</p>
+      <p>- 感觉没有美感？不妨去看一看某个开源 ui 框架的设计规范</p>
       <p>- 请善用开发工具，比如 idea 用 ctrl + shift + f，全局搜索 tagView 就能找到相关代码。</p>
       <p>- icon 图标也是 svg 生成的文字，因此可以通过设置文字颜色来设置图标的颜色。</p>
       <p>- css投影应该是比较虚的，切勿太实，最好投影中融入一些背景色，比如这样：</p>
