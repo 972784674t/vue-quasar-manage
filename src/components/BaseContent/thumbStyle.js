@@ -11,5 +11,5 @@ export const thumbStyleOfMenu = {
   backgroundColor: 'rgba(144,147,153,0.9)',
   padding: '10px;',
   margin: '10px;',
-  width: '5px'
+  width: '3px'
 }

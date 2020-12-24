@@ -14,24 +14,24 @@
     <template v-for="(item,index) in myRouter">
       <template v-if="item.meta.isHidden !== true">
         <q-item-label v-if="item.meta.itemLabel"
-                      header
-                      class="text-weight-bold text-uppercase"
-                      :key="item.meta.itemLabel">
+           header
+           class="text-weight-bold text-uppercase"
+           :key="item.meta.itemLabel">
           {{item.meta.itemLabel}}
         </q-item-label>
 
         <!-- 没有孩子 -->
         <q-item v-if="!item.children"
-                clickable
-                v-ripple
-                :key="index"
-                :exact="item.path === '/'"
-                :class="bgColor + '-' + bgColorLevel"
-                :inset-level="initLevel"
-                active-class="baseItemActive"
-                style="color: #2c3e50"
-                :to="handleLink(basePath, item.path)"
-                @click="externalLink(basePath, item.path)"
+           clickable
+           v-ripple
+           :key="index"
+           :exact="item.path === '/'"
+           :class="bgColor + '-' + bgColorLevel"
+           :inset-level="initLevel"
+           active-class="baseItemActive"
+           style="color: #2c3e50"
+           :to="handleLink(basePath, item.path)"
+           @click="externalLink(basePath, item.path)"
         >
           <q-item-section avatar>
             <q-icon :name="item.meta.icon" />
@@ -43,14 +43,14 @@
 
         <!-- 有孩子 -->
         <q-expansion-item v-else
-                          :duration="duration"
-                          :class="$route.fullPath.startsWith(item.path)?'baseRootItemActive '+bgColor + '-' + bgColorLevel:bgColor + '-' + bgColorLevel"
-                          :default-opened="item.meta.isOpen"
-                          :header-inset-level="initLevel"
-                          :key="index"
-                          :icon="item.meta.icon"
-                          :label="item.meta.title"
-                          style="color: #2c3e50"
+           :duration="duration"
+           :class="$route.fullPath.startsWith(item.path)?'baseRootItemActive '+bgColor + '-' + bgColorLevel:bgColor + '-' + bgColorLevel"
+           :default-opened="item.meta.isOpen"
+           :header-inset-level="initLevel"
+           :key="index"
+           :icon="item.meta.icon"
+           :label="item.meta.title"
+           style="color: #2c3e50"
         >
 
           <!-- 菜单项缩进 + 0.3 ; 背景色深度 + 1 ; 如果上级菜单路径存在，则拼接上级菜单路径 -->
