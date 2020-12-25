@@ -1,5 +1,5 @@
 <template>
-  <q-layout :view="viewStyle" class="bg-grey-1 full-height">
+  <q-layout :view="viewStyle" class="full-height">
 
     <!-- 头部 -->
     <q-header class="q-py-xs bg-white text-grey-8" height-hint="48"
@@ -7,7 +7,9 @@
 
       <!-- 状态栏 -->
       <q-toolbar style="margin-top: -5px;">
-        <q-btn flat dense round color="grey-8" aria-label="Menu" :icon="leftDrawerOpen === true?'menu_open':'menu'"
+        <q-btn flat dense round
+               aria-label="Menu"
+               :icon="leftDrawerOpen === true?'menu_open':'menu'"
                @click="leftDrawerOpen = !leftDrawerOpen"/>
         <!-- toolbar - title -->
         <toolbar-title/>
@@ -27,9 +29,9 @@
 
     <!-- 侧滑菜单 -->
     <q-drawer v-model="leftDrawerOpen"
-              show-if-above
-              content-class="bg-grey-1"
-              :width="240">
+        show-if-above
+        content-class="bg-white"
+        :width="240">
       <base-menu/>
     </q-drawer>
 

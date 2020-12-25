@@ -6,22 +6,22 @@
         <q-icon  v-else name="clear" class="cursor-pointer" @click="search = ''" />
       </template>
     </q-input>
-    <q-btn round dense flat color="grey-8"
+    <q-btn round dense flat
            :icon="this.$q.fullscreen.isActive?'fullscreen_exit':'fullscreen'"
            v-if="$q.screen.gt.sm" @click="fullScreen">
       <q-tooltip v-if="!this.$q.fullscreen.isActive">全屏</q-tooltip>
       <q-tooltip v-if="this.$q.fullscreen.isActive">退出全屏</q-tooltip>
     </q-btn>
-    <q-btn round dense flat color="grey-8" icon="video_call" v-if="$q.screen.gt.sm">
+    <q-btn round dense flat icon="video_call" v-if="$q.screen.gt.sm">
       <q-tooltip>创建</q-tooltip>
     </q-btn>
-    <q-btn round dense flat color="grey-8" icon="apps" v-if="$q.screen.gt.sm">
+    <q-btn round dense flat icon="apps" v-if="$q.screen.gt.sm">
       <q-tooltip>应用</q-tooltip>
     </q-btn>
-    <q-btn round dense flat color="grey-8" icon="message" v-if="$q.screen.gt.sm">
+    <q-btn round dense flat icon="message" v-if="$q.screen.gt.sm">
       <q-tooltip>消息</q-tooltip>
     </q-btn>
-    <q-btn round dense flat color="grey-8" icon="notifications">
+    <q-btn round dense flat icon="notifications">
       <q-badge color="red" text-color="" floating>
         2
       </q-badge>

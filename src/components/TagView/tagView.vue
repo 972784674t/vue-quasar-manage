@@ -30,7 +30,6 @@
               icon-remove="close"
               :text-color="v.fullPath === $route.path?'primary':''"
               removable
-              square
               class="tagView relative-position"
               @remove="$store.commit('REMOVE_TAG_VIEW',i)"
             >
@@ -111,13 +110,16 @@ export default {
 }
 </script>
 <style lang="css" scoped>
+
   .tagView {
     margin-bottom: -1px;
-    background-color: white
+    background: white;
+    transition: all .5s;
+    border-radius: 0px;
   }
 
   .tagView:hover {
-    background-color: #eeeeee;
+    background: #eeeeee;
   }
 
   .line-limit-length {

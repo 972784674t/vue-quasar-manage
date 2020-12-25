@@ -28,7 +28,7 @@ export default {
   data () {
     return {
       menuList: this.$store.getters.getRoutes[0].children,
-      bgColor: 'bg-grey',
+      bgColor: 'bg-white',
       thumbStyleOfMenu
     }
   }

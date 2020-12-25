@@ -62,6 +62,18 @@ export default {
 </script>
 ```
 ### 如何自定义菜单背景色
+1、修改侧滑区域背景色
+在```index.vue```中
+```html
+<!-- 侧滑菜单 -->
+<q-drawer v-model="leftDrawerOpen"
+   show-if-above
+   content-class="bg-white"  <!-- 默认为白色 -->
+   :width="240">
+   <base-menu/>
+</q-drawer>
+```
+2、修改菜单元素样式
 在```css```中添加
 ```css
 .bg-menu-item-1{
