@@ -118,6 +118,8 @@ export default {
   /* item 被激活时的样式 */
   .baseItemActive
     color: #1976d2 !important
+    background: rgba(25, 118, 210, 0.0618)
+    transition: all .618s
   .baseItemActive:after
     content: ''
     position: absolute

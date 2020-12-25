@@ -20,7 +20,7 @@ const asyncRoutesChildren = [
     meta: {
       roles: ['admin', 'editor'],
       title: '快速起步',
-      icon: 'blur_on',
+      icon: 'design_services',
       keepAlive: true
     },
     component: () => import('../components/Layout/layout'),
@@ -31,7 +31,7 @@ const asyncRoutesChildren = [
         meta: {
           roles: ['admin', 'editor'],
           title: '基础配置',
-          icon: 'fingerprint',
+          icon: 'tune',
           keepAlive: true
         },
         component: () => import('../views/router/getting-started')
@@ -42,7 +42,7 @@ const asyncRoutesChildren = [
         meta: {
           roles: ['admin', 'editor'],
           title: '路由配置',
-          icon: 'mediation',
+          icon: 'multiple_stop',
           keepAlive: true
         },
         component: () => import('../views/router/router-config')
@@ -113,7 +113,7 @@ const asyncRoutesChildren = [
         meta: {
           roles: ['admin', 'editor'],
           title: 'keep-alive 缓存',
-          icon: 'cached',
+          icon: 'select_all',
           keepAlive: true
         },
         component: () => import('../views/components/keep-alive-doc')
@@ -135,7 +135,7 @@ const asyncRoutesChildren = [
         meta: {
           roles: ['admin', 'editor'],
           title: 'tagView',
-          icon: 'input',
+          icon: 'exit_to_app',
           keepAlive: true
         },
         component: () => import('../views/components/tagViewDemo')
@@ -146,7 +146,7 @@ const asyncRoutesChildren = [
         meta: {
           roles: ['admin', 'editor'],
           title: '面包屑',
-          icon: 'double_arrow',
+          icon: 'clear_all',
           keepAlive: true,
           isHidden: false
         },
@@ -158,7 +158,7 @@ const asyncRoutesChildren = [
         meta: {
           roles: ['admin', 'editor'],
           title: 'icon 集合',
-          icon: 'api',
+          icon: 'grain',
           keepAlive: true
         },
         component: () => import('../views/components/icon')
@@ -180,7 +180,7 @@ const asyncRoutesChildren = [
         meta: {
           roles: ['admin', 'test'],
           title: 'markdown',
-          icon: 'history_edu',
+          icon: 'edit_road',
           keepAlive: true
         },
         component: () => import('../views/components/markdown')

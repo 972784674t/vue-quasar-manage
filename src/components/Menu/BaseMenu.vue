@@ -7,7 +7,7 @@
         :my-router="menuList"
         :init-level="0"
         :bg-color="bgColor"
-        :duration="150"
+        :duration="300"
         :bg-color-level="1"/>
     </q-list>
 
