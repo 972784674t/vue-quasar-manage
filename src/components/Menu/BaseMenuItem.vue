@@ -4,9 +4,6 @@
    initLevel ： 菜单初始化缩进等级
    bgColorLevel ：菜单背景色
    basePath : 上级菜单
-
-   ** 为了实现子项被激活，父项高亮显示，同时需要保证子项不被父项样式污染
-      因此字体颜色使用了内联样式，如有需要，请自行更改
 -->
 <template>
   <div>
@@ -26,10 +23,9 @@
            v-ripple
            :key="index"
            :exact="item.path === '/'"
-           :class="bgColor + '-' + bgColorLevel"
+           :class="bgColor + '-' + bgColorLevel + ' base-menu-item'"
            :inset-level="initLevel"
            active-class="baseItemActive"
-           style="color: #2c3e50"
            :to="handleLink(basePath, item.path)"
            @click="externalLink(basePath, item.path)"
         >
@@ -44,13 +40,14 @@
         <!-- 有孩子 -->
         <q-expansion-item v-else
            :duration="duration"
-           :class="$route.fullPath.startsWith(item.path)?'baseRootItemActive '+bgColor + '-' + bgColorLevel:bgColor + '-' + bgColorLevel"
+           :class="$route.fullPath.startsWith(item.path)?
+           'baseRootItemActive base-menu-item'+bgColor + '-' + bgColorLevel:
+           bgColor + '-' + bgColorLevel+ ' base-menu-item'"
            :default-opened="item.meta.isOpen"
            :header-inset-level="initLevel"
            :key="index"
            :icon="item.meta.icon"
            :label="item.meta.title"
-           style="color: #2c3e50"
         >
 
           <!-- 菜单项缩进 + 0.3 ; 背景色深度 + 1 ; 如果上级菜单路径存在，则拼接上级菜单路径 -->
@@ -76,10 +73,10 @@ export default {
   methods: {
 
     /**
-       * 处理内部链接
-       * @param basePath
-       * @param itemPath
-       */
+    * 处理内部链接
+    * @param basePath
+    * @param itemPath
+    */
     handleLink (basePath, itemPath) {
       const link = basePath === undefined ? itemPath : basePath + '/' + itemPath
       if (link.indexOf('http') !== -1) {
@@ -89,11 +86,11 @@ export default {
     },
 
     /**
-       * 处理外部链接
-       * @param basePath
-       * @param itemPath
-       * @returns {boolean}
-       */
+    * 处理外部链接
+    * @param basePath
+    * @param itemPath
+    * @returns {boolean}
+    */
     externalLink (basePath, itemPath) {
       const link = basePath === undefined ? itemPath : basePath + '/' + itemPath
       const i = link.indexOf('http')
@@ -111,22 +108,32 @@ export default {
 </script>
 <style lang="sass">
 
+  /* item 颜色 */
+  $ITEM_COLOR: #2c3e50
+
+  /* item 激活时颜色 */
+  $ACTIVE_COLOR: #1976d2
+  $ACTIVE_BACKGROUND: rgba(25, 118, 210, 0.0618)
+
+  .base-menu-item
+    color: $ITEM_COLOR !important
+
   /* item 被激活时父组件的样式 */
   .baseRootItemActive
-    color: #1976d2 !important
+    color: $ACTIVE_COLOR !important
 
   /* item 被激活时的样式 */
   .baseItemActive
-    color: #1976d2 !important
-    background: rgba(25, 118, 210, 0.0618)
+    color: $ACTIVE_COLOR !important
+    background: $ACTIVE_BACKGROUND
     transition: all .618s
-  .baseItemActive:after
-    content: ''
-    position: absolute
-    width: 3px
-    height: 100%
-    background: #1976d2 !important
-    top: -0.5px
-    right: 0px
+    &:after
+      content: ''
+      position: absolute
+      width: 3px
+      height: 100%
+      background: $ACTIVE_COLOR !important
+      top: -0.5px
+      right: 0px
 
 </style>
