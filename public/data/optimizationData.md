@@ -125,6 +125,11 @@ module.exports = {
 ```js
 import(/* webpackPrefetch: true */ './someAsyncComponent.vue')
 ```
+:::tip
+对于 prefetch 和 Preload 的详细使用，可以参考下面这篇文章，里边还提供了一些最佳实践的场景分享：
+
+[使用 Preload&Prefetch 优化前端页面的资源加载](https://blog.csdn.net/vivo_tech/article/details/109485871?ops_request_misc=%25257B%252522request%25255Fid%252522%25253A%252522160913047616780276386432%252522%25252C%252522scm%252522%25253A%25252220140713.130102334.pc%25255Fall.%252522%25257D&request_id=160913047616780276386432&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-12-109485871.nonecase&utm_term=vue%20cli%204%20prefetch) BY: vivo互联网技术
+:::
 
 ### 3、通过 CDN 获取资源
 比如```echarts```使用 CDN 资源引入（项目中对```echarts```配置了按需加载）
