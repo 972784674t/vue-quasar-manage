@@ -54,6 +54,10 @@ module.exports = {
       // 开发环境配置
     }
   },
+  chainWebpack: config => {
+    // 移除 prefetch 插件
+    config.plugins.delete('prefetch')
+  },
   css: {
     // 打包后css文件名称添加时间戳
     extract: {

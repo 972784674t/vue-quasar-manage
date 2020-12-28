@@ -83,6 +83,49 @@ Vue.component('v-chart', ECharts)
 }
 ```
 
+### 有同学提出问题，为什么配置了路由懒加载之后，依旧是在首屏加载时加载所有的资源信息，那路由懒加载的作用是什么？
+首先要明确的是配置路由懒加载后确实是生效了的，只不过 vue 默认为所有被懒加载的路由使用了 prefetch(预先加载模块)，提前获取用户未来可能会访问的内容，因此才会将路由懒加载的文件一股脑加载进来。
+
+vue 官网[路由懒加载](https://router.vuejs.org/zh/guide/advanced/lazy-loading.html)中提到，路由懒加载的作用是将不同的路由打包在不同的块（chunk_xxxxxxx.js）中，而原本默认是将路由都打包在 main （chunk-vendors.js）里，这样做能通过将懒加载的路由从 main 中分割出来，从而减少 main 的体积。
+当然你也可以指定某几个路由打包成一个chunk文件：
+
+比如：通过内联注释的方式，将下面三个路由打包成 group-foo.js 文件
+```js
+const Foo = () => import(/* webpackChunkName: "group-foo" */ './Foo.vue')
+const Bar = () => import(/* webpackChunkName: "group-foo" */ './Bar.vue')
+const Baz = () => import(/* webpackChunkName: "group-foo" */ './Baz.vue')
+```
+
+```chunk-vendors.js```加载之后，其他配置了路由懒加载的页面基本不会影响首屏加载的速度。
+
+当然比如在移动端或对流量比较敏感的场景，我们也可以将默认的 prefetch(预先加载模块) 关闭。
+
+vue 官网给出了关闭方法 [Prefetch](https://cli.vuejs.org/zh/guide/html-and-static-assets.html#prefetch)
+
+```js
+// vue.config.js
+module.exports = {
+  chainWebpack: config => {
+    // 移除 prefetch 插件
+    config.plugins.delete('prefetch')
+
+    // 或者
+    // 修改它的选项：
+    config.plugin('prefetch').tap(options => {
+      options[0].fileBlacklist = options[0].fileBlacklist || []
+      options[0].fileBlacklist.push(/myasyncRoute(.)+?\.js$/)
+      return options
+    })
+  }
+}
+```
+
+当 prefetch 插件被禁用时，你可以通过 webpack 的内联注释手动选定要提前获取的代码区块：
+
+```js
+import(/* webpackPrefetch: true */ './someAsyncComponent.vue')
+```
+
 ### 3、通过 CDN 获取资源
 比如```echarts```使用 CDN 资源引入（项目中对```echarts```配置了按需加载）
 
