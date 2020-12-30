@@ -49,22 +49,18 @@ export function setBreadcrumbs (matched) {
   ```<transition-group>```控制着每一个子元素的消失与出现，但是```<transition-group>```有一定局限，被控制的元素会被```<transition-group>```自动生成的```<span>```或```<ul>```标签包裹，这样会对css样式产生一定的影响。
 
 
-关于```<transition-group>```和 ```<transition>```标签的使用并不难，使用关键帧和过度转态来理解它或很容易，详情请看[VUE：进入/离开 & 列表过渡](https://cn.vuejs.org/v2/guide/transitions.html)
+关于```<transition-group>```和 ```<transition>```标签的使用并不难，使用关键帧和过度态来理解它或很容易，详情请看[VUE：进入/离开 & 列表过渡](https://cn.vuejs.org/v2/guide/transitions.html)
 
 动画定义如下：
 ```assets/scss/transitions.scss```
 ```css
 .breadcrumb-enter {
   opacity: 0;
-  margin-left: 20px;
+  transform: translateX(30px);
 }
 
 .breadcrumb-enter-active {
   transition: all .5s;
-  transition-delay: .5s;
-  -moz-transition-delay: .5s; /* Firefox 4 */
-  -webkit-transition-delay: .5s; /* Safari 和 Chrome */
-  -o-transition-delay: .5s;
 }
 
 .breadcrumb-enter-to{
@@ -73,15 +69,17 @@ export function setBreadcrumbs (matched) {
 
 .breadcrumb-leave{
   opacity: 1;
-  margin-left: 0px;
+  transform: translateX(0px);
 }
 
 .breadcrumb-leave-active{
   transition: all .5s;
+  position: absolute;
+  width: 500px;
 }
 
 .breadcrumb-leave-to{
   opacity: 0;
-  margin-left: 20px;
+  transform: translateX(30px);
 }
 ```

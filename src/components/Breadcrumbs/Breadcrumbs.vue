@@ -1,9 +1,9 @@
 <template>
   <div class="flex">
-  <q-breadcrumbs style="margin-left: 10px;" active-color="none">
+  <q-breadcrumbs style="transform: translateX(10px);display: inline-block;" active-color="none">
     <transition-group name="breadcrumb">
     <template v-for="(v,i) in breadcrumbs">
-     <q-breadcrumbs-el v-if="v.title" style="margin-top: 4px"
+     <q-breadcrumbs-el v-if="v.title" style="line-height: 20px;margin-top: 6px;"
        :label="v.title"
        :icon="v.icon"
        :key="i+v.title">

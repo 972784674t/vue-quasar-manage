@@ -3,14 +3,14 @@
 
     <!-- 头部 -->
     <q-header class="q-py-xs bg-white text-grey-8" height-hint="48"
-              style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px 0px;">
+       style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px 0px;">
 
       <!-- 状态栏 -->
-      <q-toolbar style="margin-top: -5px;">
+      <q-toolbar style="margin-top: -4px;">
         <q-btn flat dense round
-               aria-label="Menu"
-               :icon="leftDrawerOpen === true?'menu_open':'menu'"
-               @click="leftDrawerOpen = !leftDrawerOpen"/>
+           aria-label="Menu"
+           :icon="leftDrawerOpen === true?'menu_open':'menu'"
+           @click="leftDrawerOpen = !leftDrawerOpen"/>
         <!-- toolbar - title -->
         <toolbar-title/>
         <!-- 面包屑 -->
