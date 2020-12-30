@@ -14,7 +14,7 @@
         <!-- toolbar - title -->
         <toolbar-title/>
         <!-- 面包屑 -->
-        <breadcrumbs v-if="$q.screen.gt.xs"/>
+        <breadcrumbs v-if="$q.screen.gt.sm"/>
         <q-space/>
         <!-- 右侧元素 -->
         <toolbar-item-right/>
