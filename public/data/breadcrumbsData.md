@@ -63,13 +63,17 @@ export function setBreadcrumbs (matched) {
   transition: all .5s;
 }
 
-.breadcrumb-enter-to{
+.breadcrumb-enter-to {
   opacity: 1;
 }
 
-.breadcrumb-leave{
+.breadcrumb-leave {
   opacity: 1;
   transform: translateX(0px);
+}
+
+.breadcrumb-move {
+  transition: all .5s;
 }
 
 .breadcrumb-leave-active{
@@ -82,4 +86,5 @@ export function setBreadcrumbs (matched) {
   opacity: 0;
   transform: translateX(30px);
 }
+
 ```
