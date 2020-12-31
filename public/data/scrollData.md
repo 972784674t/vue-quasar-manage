@@ -12,14 +12,14 @@ components
 - 页面刷新或切换时记录滚动位置（如果页面不被```<keep-alive>```缓存则不会记录）
 
 因为我在百度统计里看到大家对这个组件的比较感兴趣，干脆直接在这里上源码和注释吧
-```js
+```html
 <template>
     <div class="main-content">
       <q-scroll-area
         ref="scrollArea"
         :thumb-style="thumbStyle"
         :visible="false"
-        style="height: 100%"   // 请确保你的父节点的高度也是 100 %，设置为 100vh 的话在移动端会出问题。
+        style="height: 100%"
       >
       <slot/>
       </q-scroll-area>
@@ -27,7 +27,6 @@ components
 </template>
 
 <script>
-// 引入自定义滚动条样式
 import { thumbStyle } from './thumbStyle'
 
 export default {
@@ -35,14 +34,15 @@ export default {
   data () {
     return {
       thumbStyle,
-      pathTemp: ''
+      // 标记当前 BaseContent 所在路由的页面
+      BasePath: ''
     }
   },
   props: ['position'],
   methods: {
 
     // 滚动
-    scrollToPosition (e) {
+    ScrollToPosition (e) {
       this.$refs.scrollArea.setScrollPosition(e, 300)
     },
 
@@ -54,8 +54,15 @@ export default {
   },
 
   mounted () {
-    // 如果是页面被刷新，则从 sessionStorage 读取当前页面的滚动位置，
-    // 现在你有可以打开浏览器窗口，看看 sessionStorage 有啥
+    this.BasePath = this.$route.path
+
+    // 确保每个 BaseContent 有唯一的 BasePath
+    Object.freeze(this.BasePath)
+
+    // console.log(`创建：${this.BasePath}`)
+
+    // 如果页面被刷新，则从 sessionStorage 读取当前页面的滚动位置，
+    // 可以打开浏览器窗口，看看 sessionStorage 有啥
     const t = window.sessionStorage.getItem(this.$route.path)
     if (t) {
       const toPosition = JSON.parse(t)
@@ -63,18 +70,21 @@ export default {
     }
   },
 
-  // 当组件被 keep-alive 缓存时，切换路由会触发 deactivated 方法
-  // 此时 this.$route.path 作为 key ，将滚动位置保存的 sessionStorage 中，
+  /**
+   * 当组件被 keep-alive 缓存时，切出路由会触发 deactivated 方法
+   * 此时 this.BasePath 作为 key ，将滚动位置保存的 sessionStorage 中
+   */
   deactivated () {
-    // 将 token 和当前 path 做成 key，记录滚动位置
-    window.sessionStorage.setItem(this.pathTemp, JSON.stringify({ listScrollTop: this.getPosition() }))
+    // console.log(`切换（from）：${this.BasePath}`)
+    window.sessionStorage.setItem(this.BasePath, JSON.stringify({ listScrollTop: this.getPosition() }))
   },
 
-  // 当组件被 keep-alive 缓存时，切回路由会触发 activated 方法
-  // 此时从 sessionStorage 中获取滚动位置
+  /**
+   * 当组件被 keep-alive 缓存时，切回路由会触发 activated 方法
+   * 此时从 sessionStorage 中获取滚动位置
+   */
   activated () {
-    this.pathTemp = this.$route.path
-    // this.$route.path 做成 key，记录滚动位置
+    // console.log(`切换（to）：${this.$route.path}`)
     const t = window.sessionStorage.getItem(this.$route.path)
     if (t) {
       const toPosition = JSON.parse(t)
@@ -82,14 +92,22 @@ export default {
     }
   },
 
-  // 如果组件被关闭，则清除对应的 sessionStorage
+  /**
+   * 如果组件被关闭，则清除对应的 sessionStorage
+   */
   destroyed () {
-    sessionStorage.removeItem(window.sessionStorage.getItem(this.$route.path))
+    // console.log(`销毁：${this.BasePath}`)
+    sessionStorage.removeItem(this.BasePath)
   }
 
 }
 </script>
-
+<style>
+.main-content{
+  height: 100%;
+  background-color: #fcfcff;
+}
+</style>
 ```
 
 :::tip

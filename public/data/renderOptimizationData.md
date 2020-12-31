@@ -197,7 +197,7 @@ RenderMDIcon (i) {
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201224180157760.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxOTEyMzk4,size_16,color_FFFFFF,t_70#pic_center)
 ### 好家伙，马上定位问题：
 
-原因是封装的 lottie 组件中添加了事件监听，并且没有在 lottie 被销毁时移除该监听
+原因是封装的 lottie 组件中添加了动画加载完成事件监听，并且没有在 lottie 被销毁时移除该监听
 
 不要问我为什么知道，因为 BUG 是我写的， (￣(00)￣)　
 ```js
@@ -205,8 +205,12 @@ this.lottie.addEventListener('data_ready', this.isLottieFinish)
 ```
 
 ### 如何解决：
+使用```addEventListener```的第三个参数确保事件只执行一次，并在完成后被移除
 
-在组件被销毁的同时销毁该对象即可
+```js
+this.lottie.addEventListener('data_ready', this.isLottieFinish, { once: true })
+```
+在组件被销毁的同时销毁该对象
 
 ```js
 beforeDestroy () {

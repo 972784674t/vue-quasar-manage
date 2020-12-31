@@ -10,7 +10,7 @@
 import BaseContent from '../../components/BaseContent/BaseContent'
 
 export default {
-  name: 'optimization',
+  name: 'VolumeOptimization',
   components: { BaseContent },
   data () {
     return {

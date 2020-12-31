@@ -46,7 +46,7 @@ export default {
         path: this.path
       })
 
-      this.lottie.addEventListener('data_ready', this.isLottieFinish)
+      this.lottie.addEventListener('data_ready', this.isLottieFinish, { once: true })
     }
 
   },

@@ -66,8 +66,7 @@ const asyncRoutesChildren = [
     meta: {
       roles: ['admin', 'test'],
       title: '性能优化',
-      icon: 'memory',
-      keepAlive: true
+      icon: 'memory'
     },
     component: () => import('../components/Layout/layout'),
     children: [
@@ -80,7 +79,7 @@ const asyncRoutesChildren = [
           icon: 'miscellaneous_services',
           keepAlive: true
         },
-        component: () => import('../views/optimization/optimization')
+        component: () => import('../views/optimization/VolumeOptimization')
       },
       {
         path: 'renderOptimization',
@@ -170,7 +169,7 @@ const asyncRoutesChildren = [
           roles: ['admin', 'test'],
           title: 'loading-bar',
           icon: 'rotate_right',
-          keepAlive: false
+          keepAlive: true
         },
         component: () => import('../views/components/loading-bar')
       },
@@ -215,8 +214,7 @@ const asyncRoutesChildren = [
     meta: {
       roles: ['admin', 'test'],
       title: '三级菜单',
-      icon: 'filter_3',
-      keepAlive: true
+      icon: 'filter_3'
     },
     component: () => import('../components/Layout/layout'),
     children: [

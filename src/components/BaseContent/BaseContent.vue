@@ -19,7 +19,8 @@ export default {
   data () {
     return {
       thumbStyle,
-      pathTemp: ''
+      // 标记当前 BaseContent 所在路由的页面
+      BasePath: ''
     }
   },
   props: ['position'],
@@ -38,8 +39,15 @@ export default {
   },
 
   mounted () {
-    // 如果是页面被刷新，则从 sessionStorage 读取当前页面的滚动位置，
-    // 现在你有可以打开浏览器窗口，看看 sessionStorage 有啥
+    this.BasePath = this.$route.path
+
+    // 确保每个 BaseContent 有唯一的 BasePath
+    Object.freeze(this.BasePath)
+
+    // console.log(`创建：${this.BasePath}`)
+
+    // 如果页面被刷新，则从 sessionStorage 读取当前页面的滚动位置，
+    // 可以打开浏览器窗口，看看 sessionStorage 有啥
     const t = window.sessionStorage.getItem(this.$route.path)
     if (t) {
       const toPosition = JSON.parse(t)
@@ -47,16 +55,21 @@ export default {
     }
   },
 
-  // 当组件被 keep-alive 缓存时，切换路由会触发 deactivated 方法
-  // 此时 this.$route.path 作为 key ，将滚动位置保存的 sessionStorage 中，
+  /**
+   * 当组件被 keep-alive 缓存时，切出路由会触发 deactivated 方法
+   * 此时 this.BasePath 作为 key ，将滚动位置保存的 sessionStorage 中
+   */
   deactivated () {
-    window.sessionStorage.setItem(this.pathTemp, JSON.stringify({ listScrollTop: this.getPosition() }))
+    // console.log(`切换（from）：${this.BasePath}`)
+    window.sessionStorage.setItem(this.BasePath, JSON.stringify({ listScrollTop: this.getPosition() }))
   },
 
-  // 当组件被 keep-alive 缓存时，切回路由会触发 activated 方法
-  // 此时从 sessionStorage 中获取滚动位置
+  /**
+   * 当组件被 keep-alive 缓存时，切回路由会触发 activated 方法
+   * 此时从 sessionStorage 中获取滚动位置
+   */
   activated () {
-    this.pathTemp = this.$route.path
+    // console.log(`切换（to）：${this.$route.path}`)
     const t = window.sessionStorage.getItem(this.$route.path)
     if (t) {
       const toPosition = JSON.parse(t)
@@ -64,9 +77,12 @@ export default {
     }
   },
 
-  // 如果组件被关闭，则清除对应的 sessionStorage
+  /**
+   * 如果组件被关闭，则清除对应的 sessionStorage
+   */
   destroyed () {
-    sessionStorage.removeItem(window.sessionStorage.getItem(this.$route.path))
+    // console.log(`销毁：${this.BasePath}`)
+    sessionStorage.removeItem(this.BasePath)
   }
 
 }

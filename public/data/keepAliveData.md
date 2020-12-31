@@ -2,7 +2,7 @@
 :::tip
 - 缓存上限在```config.js```中设置为10，如超出上限则使用LRU的策略置换缓存数据（没错就是计算机内存管理中的LRU）
 - 缓存不建议过多，内存很容易爆，如果需要大量缓存，建议引入```redis```或者浏览器自带的```storage```来处理缓存
-- 默认不缓存首页，如果需要请在```mutations.js```的```SET_KEEPALIVELIST```方法中根据自身需求修改(有示例代码)
+- 默认不缓存首页，如果需要请在```store/mutations.js```的```SET_KEEPALIVELIST```方法中根据自身需求修改(有示例代码)
 :::
 缓存展示：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201111011711627.gif#pic_center)
@@ -36,11 +36,36 @@
 ### 因此这里重点讲方法二（正在使用的）：
 1.将路由元信息中包含```keepAlive: true```的路由记录下来，并将该路由的name属性为维护在使用```vuex```中的一个```keepAliveList: []```里。
 
+:::tip
+首先我们需要知道```keep-alive```是根据``include``中的值来匹配当前路由```name```属性和对应路由页面组件的```name```属性，来判断这个路由中的组件是否需要缓存。
+
+因此为了确保```keep-alive```正确执行，配置路由时的```name```属性必须和对应路由页面组件的```name```属性相同
+:::
+
+像这样：
+```js
+// 在路由配置中
+...
+{
+  path: '/cimo',
+  name: 'cimo',   // 这两处相同
+  component: () => import('../views/components/cimo')
+},
+...
+
+// 在 cimo 组件中
+export default {
+  name: 'cimo',   // 这两处相同
+  ...
+}
+```
+
+
 2.使用```<keep-alive>```的```include```属性，来实现动态的组件缓存。
 
 先说一下``include``属性，它的值可以是：字符串，正则表达式，数组
 
-首先我们需要知道```keep-alive```可以根据``include``中的值来匹配当前路由对应组件的```name```属性（！！不是路由的```name```哦，是组件的```name```），来判断这个路由中的组件是否需要缓存。因此我们只需要将```keepAliveList: []```里保存的需要缓存的路由组件```name```数组传入```include```即可
+我们只需要将```keepAliveList: []```里保存的需要缓存的路由组件```name```数组传入```include```即可
 
 因此使用起来就像这样
 ```html

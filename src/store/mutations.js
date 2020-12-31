@@ -90,7 +90,7 @@ const mutations = {
         state.keepAliveList.push(payload[i].name)
       }
     }
-    // 如果需要缓存首页，如下放所示，在方法最后 push 对于的路由组件名称即可
+    // 如果需要缓存首页，如下方所示，在方法最后 push 对应的路由组件名称即可
     // state.keepAliveList.push('home')
     return state.keepAliveList
   }
