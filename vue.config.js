@@ -13,8 +13,15 @@ module.exports = {
   transpileDependencies: [
     'quasar',
     'vue-echarts',
-    'resize-detector'
+    'resize-detector',
+    '@kangc'
   ],
+
+  // 项目打包文件夹
+  // outputDir: 'vue-quasar-manage',
+
+  // 静态资源文件夹 *注：当生成的资源覆写 filename 或 chunkFilename 时，assetsDir 会被忽略。
+  // assetsDir: 'static',
 
   // 关闭 sourcemap
   productionSourceMap: false,
@@ -59,7 +66,7 @@ module.exports = {
     // config.plugins.delete('prefetch')
   },
   css: {
-    // 打包后css文件名称添加时间戳
+    // 打包后css文件名称添加时间戳，浏览器不会加载上版本资源
     extract: {
       filename: `css/[name].${timeStamp}.css`,
       chunkFilename: `css/[name].${timeStamp}.css`
