@@ -70,20 +70,21 @@ REMOVE_TAG_VIEW: (state, payload) => {
 在组件中调用
 ```js
 // 调用方法
-methods: {
-  removeAllTagView () {
-    this.$store.commit('REMOVE_TAG_VIEW')
-  },
-  removeLeftTagView (i) {
-    this.$store.commit('REMOVE_TAG_VIEW', { side: 'left', index: i })
-  },
-  removeRightTagView (i) {
-    this.$store.commit('REMOVE_TAG_VIEW', { side: 'right', index: i })
-  },
-  removeOthersTagView (i) {
-    this.$store.commit('REMOVE_TAG_VIEW', { side: 'others', index: i })
-  }
- }
+removeAllTagView () {
+  this.$store.commit('REMOVE_TAG_VIEW')
+},
+removeAtagView (i) {
+  this.$store.commit('REMOVE_TAG_VIEW', i)
+},
+removeLeftTagView (i) {
+  this.$store.commit('REMOVE_TAG_VIEW', { side: 'left', index: i })
+},
+removeRightTagView (i) {
+  this.$store.commit('REMOVE_TAG_VIEW', { side: 'right', index: i })
+},
+removeOthersTagView (i) {
+  this.$store.commit('REMOVE_TAG_VIEW', { side: 'others', index: i })
+}
 ```
 
 
