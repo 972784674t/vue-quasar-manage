@@ -66,7 +66,7 @@ function handleTagViewAndBreadcrumbsAndKeepAlive (to) {
     JSON.parse(window.sessionStorage.getItem('tagView')) === null ? window.sessionStorage.setItem('tagView', '[]') : tagViewOnSS = JSON.parse(window.sessionStorage.getItem('tagView'))
     if (store.getters.getTagView.length === 0 && tagViewOnSS.length !== 0) {
       setTagView(tagViewOnSS)
-      store.commit('SET_KEEPALIVELIST', tagViewOnSS)
+      store.commit('SET_KEEPALIVE_LIST', tagViewOnSS)
     } else {
       addTagView(to)
     }

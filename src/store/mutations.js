@@ -3,7 +3,6 @@ import constructionRouters from '../router/permissionUtils'
 import deepClone from '../utils/clone-utils'
 import router, { resetRouter } from '../router'
 import { removeATagView, removeOneSide } from '../components/TagView/tagViewUtils'
-// import { path404 } from '../components/404/error404'
 
 const mutations = {
 
@@ -83,7 +82,7 @@ const mutations = {
    * 设置缓存列表
    * @param payload tagView[]
    */
-  SET_KEEPALIVELIST: (state, payload) => {
+  SET_KEEPALIVE_LIST: (state, payload) => {
     state.keepAliveList = []
     for (let i = 0; i < payload.length; i++) {
       if (payload[i].keepAlive) {
