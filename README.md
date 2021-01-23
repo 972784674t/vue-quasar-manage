@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>vue-quasar-manage</h1>
+  <h1>Vue-Quasar-Manage</h1>
 </div>
 <p align="center">
     <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
