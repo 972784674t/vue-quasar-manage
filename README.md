@@ -27,7 +27,9 @@ Vue-Quasar-Manage 是一款中后台前端解决方案：
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1121/001642_63a6fa66_5663937.png "home.png")
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1120/235645_43a6f8ea_5663937.png "屏幕截图.png")
+<p align="center">
+    <img src="https://images.gitee.com/uploads/images/2021/0123/174943_5c56f9c7_5663937.png" alt="android">
+</p>
 
 ### 更新日志
 - *2020/12/3*    
