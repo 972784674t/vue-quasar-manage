@@ -20,7 +20,7 @@ Vue-Quasar-Manage 是一款中后台前端解决方案：
 
 使用这个项目前您需要了解如下技术栈：
 
-[ES6](https://es6.ruanyifeng.com/) | [Node.js](https://nodejs.org/en/) | [webpack](https://www.webpackjs.com/) | [vue](https://cn.vuejs.org/) | [vuex](https://vuex.vuejs.org/zh/) | [vue-router](https://router.vuejs.org/zh/) | [vue-cli](https://cli.vuejs.org/zh/) | [axios](http://www.axios-js.com/) | [ESlint](https://eslint.bootcss.com/)
+[ES6](https://es6.ruanyifeng.com/) | [Node.js](https://nodejs.org/en/) | [Webpack](https://www.webpackjs.com/) | [Vue](https://cn.vuejs.org/) | [Vuex](https://vuex.vuejs.org/zh/) | [Vue-Router](https://router.vuejs.org/zh/) | [Vue-cli](https://cli.vuejs.org/zh/) | [Axios](http://www.axios-js.com/) | [ESlint](https://eslint.bootcss.com/)
 ### DEMO地址
 
 [Github](https://972784674t.github.io/vue-quasar-manage/) | [Gitee 国内用户访问](http://incimo.gitee.io/vue-quasar-manage)
