@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/npm/v/quasar.svg?label=quasar">  <img src="https://img.shields.io/npm/v/%40quasar/extras.svg?label=@quasar/extras"> 
 </p>
 
-vue-quasar-manage 是一款中后台前端解决方案：
+Vue-Quasar-Manage 是一款中后台前端解决方案：
 - 基于 [vue](https://cn.vuejs.org/) 和 [quasar-ui](http://www.quasarchs.com/) 实现，[quasar-ui](http://www.quasarchs.com/) 的设计规范来自 [Material Design](https://material.io/)
 - 包含动态路由，动态缓存，权限验证等常用功能
 - 响应式设计，支持手机 / 平板 / 小分辨率屏幕显示
@@ -15,6 +15,8 @@ vue-quasar-manage 是一款中后台前端解决方案：
 - 内置 Material Design 图标集
 - 简单的代码逻辑，多种自定义组件，高度可定制性（只有 1600 行代码）
 - 完全开源及免费
+
+当然如果你想要```Quasar-cli```版本的：[Quasar-Manage](https://github.com/972784674t/Quasar-Manage)
 
 使用这个项目前您需要了解如下技术栈：
 
