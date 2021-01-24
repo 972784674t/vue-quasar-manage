@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>vue-quasar-manage</h1>
+  <h1>Vue-Quasar-Manage</h1>
 </div>
 <p align="center">
     <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
@@ -7,25 +7,29 @@
   <img src="https://img.shields.io/npm/v/quasar.svg?label=quasar">  <img src="https://img.shields.io/npm/v/%40quasar/extras.svg?label=@quasar/extras"> 
 </p>
 
-vue-quasar-manage 是一款中后台前端解决方案：
+Vue-Quasar-Manage 是一款中后台前端解决方案：
 - 基于 [vue](https://cn.vuejs.org/) 和 [quasar-ui](http://www.quasarchs.com/) 实现，[quasar-ui](http://www.quasarchs.com/) 的设计规范来自 [Material Design](https://material.io/)
 - 包含动态路由，动态缓存，权限验证等常用功能
-- 响应式设计，支持手机 / 平板 / 小分辨率屏幕显示
+- 响应式设计，SPA / Electron / Mobile / Cordova 兼容良好
 - 包含 tagView 快捷导航、面包屑导航等 SPA 应用常用功能
 - 内置 Material Design 图标集
 - 简单的代码逻辑，多种自定义组件，高度可定制性（只有 1600 行代码）
 - 完全开源及免费
 
+当然如果你想要```Quasar-cli```版本的：[Quasar-Manage](https://github.com/972784674t/Quasar-Manage)
+
 使用这个项目前您需要了解如下技术栈：
 
-[ES6](https://es6.ruanyifeng.com/) | [Node.js](https://nodejs.org/en/) | [webpack](https://www.webpackjs.com/) | [vue](https://cn.vuejs.org/) | [vuex](https://vuex.vuejs.org/zh/) | [vue-router](https://router.vuejs.org/zh/) | [vue-cli](https://cli.vuejs.org/zh/) | [axios](http://www.axios-js.com/) | [ESlint](https://eslint.bootcss.com/)
+[ES6](https://es6.ruanyifeng.com/) | [Node.js](https://nodejs.org/en/) | [Webpack](https://www.webpackjs.com/) | [Vue](https://cn.vuejs.org/) | [Vuex](https://vuex.vuejs.org/zh/) | [Vue-Router](https://router.vuejs.org/zh/) | [Vue-cli](https://cli.vuejs.org/zh/) | [Axios](http://www.axios-js.com/) | [ESlint](https://eslint.bootcss.com/)
 ### DEMO地址
 
 [Github](https://972784674t.github.io/vue-quasar-manage/) | [Gitee 国内用户访问](http://incimo.gitee.io/vue-quasar-manage)
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1121/001642_63a6fa66_5663937.png "home.png")
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1120/235645_43a6f8ea_5663937.png "屏幕截图.png")
+<p align="center">
+    <img src="https://images.gitee.com/uploads/images/2021/0123/174943_5c56f9c7_5663937.png" alt="android">
+</p>
 
 ### 更新日志
 - *2020/12/3*    
