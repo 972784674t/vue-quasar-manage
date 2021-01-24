@@ -23,7 +23,7 @@
            v-ripple
            :key="index"
            :exact="item.path === '/'"
-           :class="bgColor + '-' + bgColorLevel + ' base-menu-item'"
+           :class="baseItemClass"
            :inset-level="initLevel"
            active-class="baseItemActive"
            :to="handleLink(basePath, item.path)"
@@ -40,9 +40,7 @@
         <!-- 有孩子 -->
         <q-expansion-item v-else
            :duration="duration"
-           :class="$route.fullPath.startsWith(item.path)?
-           'baseRootItemActive base-menu-item'+bgColor + '-' + bgColorLevel:
-           bgColor + '-' + bgColorLevel+ ' base-menu-item'"
+           :class="baseItemClassWithNoChildren(item.path)"
            :default-opened="item.meta.isOpen"
            :header-inset-level="initLevel"
            :key="index"
@@ -69,14 +67,29 @@
 <script>
 export default {
   name: 'base-menu-item',
+  data () {
+    return {
+      baseItemClass: this.bgColor + '-' + this.bgColorLevel + ' base-menu-item'
+    }
+  },
+  computed: {
+    /**
+     * 处理子菜单被激活的样式，同时修改父菜单样式
+     */
+    baseItemClassWithNoChildren () {
+      return (path) => {
+        return this.$route.fullPath.startsWith(path) ? 'baseRootItemActive base-menu-item' + this.baseItemClass : this.baseItemClass
+      }
+    }
+  },
   props: ['myRouter', 'initLevel', 'bgColor', 'bgColorLevel', 'duration', 'basePath'],
   methods: {
 
     /**
-    * 处理内部链接
-    * @param basePath
-    * @param itemPath
-    */
+     * 处理内部链接
+     * @param basePath
+     * @param itemPath
+     */
     handleLink (basePath, itemPath) {
       const link = basePath === undefined ? itemPath : basePath + '/' + itemPath
       if (link.indexOf('http') !== -1) {
@@ -86,11 +99,11 @@ export default {
     },
 
     /**
-    * 处理外部链接
-    * @param basePath
-    * @param itemPath
-    * @returns {boolean}
-    */
+     * 处理外部链接
+     * @param basePath
+     * @param itemPath
+     * @returns {boolean}
+     */
     externalLink (basePath, itemPath) {
       const link = basePath === undefined ? itemPath : basePath + '/' + itemPath
       const i = link.indexOf('http')
@@ -118,7 +131,7 @@ export default {
   .base-menu-item
     color: $ITEM_COLOR !important
 
-  /* item 被激活时父组件的样式 */
+  /* item 被激活时父菜单的样式 */
   .baseRootItemActive
     color: $ACTIVE_COLOR !important
 
