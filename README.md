@@ -48,7 +48,7 @@ Vue-Quasar-Manage 是一款中后台前端解决方案：
 2.1 删除 原先版本 ```package-lock.json``` 文件， ```node_modules``` 文件  
 2.2 重新运行 install 即可
 - *2021/1/30*  
-1 修复在微信端```<tagView>```文本不居中的问题
+1 修复在微信端```<tagView>```文本不居中的问题  
 2 路由```icon```改为非必要，优化没有```icon```时```<tagView>```和```<Breadcrumbs>```的显示问题
 
 ### 如何运行
