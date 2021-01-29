@@ -20,7 +20,7 @@
         content-class="tagView-q-router-tab"
       >
         <template slot="default">
-          <q-icon size="21px" name="home"/>
+          <q-icon size="1.3rem" name="home"/>
           <div class="line-limit-length" style="margin: 0px 5px 0px 5px;">主页</div>
         </template>
       </q-route-tab>
@@ -36,7 +36,7 @@
         >
           <template slot="default">
             <q-icon size="1.3rem" v-if="v.icon" :name="v.icon"/>
-            <div class="line-limit-length" style="">{{ v.title }}</div>
+            <div class="line-limit-length">{{ v.title }}</div>
             <q-icon class="tagView-remove-icon" style="display: inline-flex" name="close"
                     @click.prevent.stop="removeAtagView(i)"/>
             <q-menu
@@ -128,8 +128,6 @@ export default {
 <style lang="css" scoped>
 
   .tagView {
-    vertical-align: middle;
-    text-align: center;
     margin: 1.5px 3px 0 3px;
     min-height: 20px;
     padding: 0 8px;
@@ -137,7 +135,9 @@ export default {
     transition: all .5s;
     border-radius: 0;
     height: 31px;
-    line-height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .tagView-remove-icon {
