@@ -1,6 +1,7 @@
 <template>
   <base-content>
-    <div class="base-markdown-content">
+    <skeleton-demo :show="isLoadingVisible"/>
+    <div class="base-markdown-content" v-show="!isLoadingVisible">
       <v-md-editor :value="content" mode="preview"/>
     </div>
   </base-content>
@@ -8,30 +9,34 @@
 
 <script>
 import BaseContent from '../../components/BaseContent/BaseContent'
+import SkeletonDemo from '../../components/Skeleton/SkeletonDemo'
 
 export default {
   name: 'scrollDemo',
-  components: { BaseContent },
+  components: { SkeletonDemo, BaseContent },
   data () {
     return {
-      content: ''
+      content: '',
+      isLoadingVisible: false
     }
   },
   methods: {
     getMsg () {
+      this.isLoadingVisible = !this.isLoadingVisible
       const query = {
         url: this.$PUBLIC_PATH + 'data/scrollData.md',
         method: 'get',
         responseType: 'text'
       }
       this.$fetchData(query).then(res => {
+        this.isLoadingVisible = !this.isLoadingVisible
         this.content = res.data
       }).catch(error => {
         console.log(error)
       })
     }
   },
-  mounted () {
+  created () {
     this.getMsg()
   }
 }

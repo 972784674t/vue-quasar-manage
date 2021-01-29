@@ -16,7 +16,7 @@ import layout from '../components/layout/layout'
   meta: {
     roles: ['admin', 'editor'],       // 能访问此路由的权限
     title: '路由和权限',               // 菜单 title
-    icon: 'blur_on',                  // 菜单 icon
+    icon: 'blur_on',                  // [非必须] 菜单 icon
     itemLabel: 'MY SHARE',            // [非必须] 需要显示在该菜单前的 label
     isOpen: true,                     // [非必须] 菜单是否默认展开，默认为 false
     keepAlive: true,                  // [非必须] 组件是否缓存，默认为 false

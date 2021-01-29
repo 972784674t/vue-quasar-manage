@@ -14,7 +14,7 @@
       :breakpoint="0"
     >
       <q-route-tab
-        class="tagView relative-position"
+        class="tagView"
         to="/"
         no-caps
         content-class="tagView-q-router-tab"
@@ -28,16 +28,16 @@
       <template v-for="(v,i) in tagView">
 
         <q-route-tab
-          class="tagView relative-position"
+          class="tagView"
           :key="v.fullPath + i"
           :to="v.fullPath"
           no-caps
           content-class="tagView-q-router-tab"
         >
           <template slot="default">
-            <q-icon size="21px" :name="v.icon"/>
-            <div class="line-limit-length" style="margin: 0px 5px 0px 5px;">{{ v.title }}</div>
-            <q-icon class="tagView-remove-icon" style="display: inline-flex" size="1.2rem" name="close"
+            <q-icon size="1.3rem" v-if="v.icon" :name="v.icon"/>
+            <div class="line-limit-length" style="">{{ v.title }}</div>
+            <q-icon class="tagView-remove-icon" style="display: inline-flex" name="close"
                     @click.prevent.stop="removeAtagView(i)"/>
             <q-menu
               touch-position
@@ -137,15 +137,13 @@ export default {
     transition: all .5s;
     border-radius: 0;
     height: 31px;
-  }
-
-  .tagView:hover {
-    background: #eeeeee;
+    line-height: 31px;
   }
 
   .tagView-remove-icon {
-    opacity: 0.58;
+    font-size: 1.0rem;
     border-radius: .2rem;
+    opacity: 0.58;
     transition: all .3s;
   }
 
@@ -154,6 +152,7 @@ export default {
   }
 
   .line-limit-length {
+    margin: 0px 5px 0px 7px;
     overflow: hidden;
     max-width: 180px;
     white-space: nowrap;
