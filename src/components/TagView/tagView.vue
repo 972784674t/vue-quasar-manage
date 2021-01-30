@@ -18,6 +18,7 @@
         to="/"
         no-caps
         content-class="tagView-q-router-tab"
+        :style="isWeChart?' line-height: normal':''"
       >
         <template slot="default">
           <q-icon size="1.3rem" name="home"/>
@@ -33,6 +34,7 @@
           :to="v.fullPath"
           no-caps
           content-class="tagView-q-router-tab"
+          :style="isWeChart?' line-height: normal':''"
         >
           <template slot="default">
             <q-icon size="1.3rem" v-if="v.icon" :name="v.icon"/>
@@ -88,9 +90,19 @@ export default {
     }
   },
   computed: {
+
     getTagView () {
       return this.$store.getters.getTagView
+    },
+
+    /**
+     * 如果是微信浏览器，则添加 line-height: normal 样式
+     * @returns {boolean}
+     */
+    isWeChart () {
+      return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1
     }
+
   },
   watch: {
     getTagView (n, o) {
@@ -100,21 +112,27 @@ export default {
     }
   },
   methods: {
+
     removeAllTagView () {
       this.$store.commit('REMOVE_TAG_VIEW')
     },
+
     removeAtagView (i) {
       this.$store.commit('REMOVE_TAG_VIEW', i)
     },
+
     removeLeftTagView (i) {
       this.$store.commit('REMOVE_TAG_VIEW', { side: 'left', index: i })
     },
+
     removeRightTagView (i) {
       this.$store.commit('REMOVE_TAG_VIEW', { side: 'right', index: i })
     },
+
     removeOthersTagView (i) {
       this.$store.commit('REMOVE_TAG_VIEW', { side: 'others', index: i })
     }
+
   }
 }
 </script>
