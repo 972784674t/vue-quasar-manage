@@ -213,7 +213,7 @@ module.exports = {
 配置```Gzip```压缩之后，需要你的服务器支持```Gzip```格式文件（浏览器支持，服务器不一定默认支持）
 
 我用的比较多的是```Nginx```、```express```和```tomcat```，因此只列出这些服务器的配置方式，其他服务器都是异曲同工
-#### Nginx 开启```Gzip```支持
+### Nginx 开启```Gzip```支持
 在```conf/nginx.conf```中添加如下配置
 
 ```sh
@@ -238,7 +238,7 @@ module.exports = {
 网络上虽然有```Ngnix```使用```Gzip```的```ttf```压缩痕迹，但是都是一笔带过。还是自己太菜了......
 :::
 
-#### Express 开启```Gzip```支持
+### Express 开启```Gzip```支持
 安装对应依赖
 ```js
 npm install compression --save
@@ -251,7 +251,7 @@ var app = express()
 app.use(compression())
 ```
 
-#### Tomcat 开启```Gzip```支持
+### Tomcat 开启```Gzip```支持
 修改 tomcat 8 的 ```server.xml```，找到默认端口的位置，在后面添加配置如下
 ```html
 <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"

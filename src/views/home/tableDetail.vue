@@ -16,7 +16,7 @@ export default {
     }
   },
   created () {
-    this.msg = this.$route.params
+    this.msg = this.$route.query
   }
 }
 </script>

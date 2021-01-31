@@ -13,9 +13,7 @@ export function addTagView (to) {
     icon: to.meta.icon,
     keepAlive: to.meta.keepAlive || false
   }
-  if (getFirst(to.params) !== undefined) {
-    t.title = t.title + '：' + getFirst(to.params)
-  }
+  getFirst(to.query) !== undefined && (t.title += '：' + getFirst(to.query))
   if (t.title !== null && t.title !== undefined && t.fullPath !== '/' && t.fullPath.indexOf('#') === -1) {
     store.commit('ADD_TAG_VIEW', t)
   }

@@ -5,8 +5,10 @@ components
    |-Breadcrumbs.vue                # Breadcrumb 源文件
    |-BreadcrumbsUtils.js            # 设置 Breadcrumbs 工具类
 ```
-面包屑的路径信息是在路由守卫中通过```to.matched```属性过滤而来。
-
+:::tip
+- 面包屑的路径信息是在路由守卫中通过深拷贝```to.matched```属性而来。
+- 当路由跳转带```query```参数时，```breadcrumbs```标签会加上第一个参数的值，作为标识
+:::
 但为了实现```<keep-alive>```缓存，需要将```to.matched```做了拍平处理（详见 ```<keep-alive>缓存```说明）,此时```to.matched```被拍平之后失去了父组件的路由元信息，这样在实现面包屑功能时无法做到如
 
 组件说明    /    面包屑
@@ -22,21 +24,26 @@ components
 ```js
 router.beforeEach((to, from, next) => {
   ...
-  setBreadcrumbs(to.matched)
+  setBreadcrumbs(to.matched, to.query)
   ...
 }）
 
 ## BreadcrumbsUtils.js
 /**
  * 获取 matched 中的路径 title，并生成面包屑
+ * 如果有 query 则取第一个参数附加在 title 上
  * @param matched to.matched[]
+ * @param query 参数
  */
-export function setBreadcrumbs (matched) {
-  const tb = []
+export function setBreadcrumbs (matched, query) {
+  const temp = []
   for (let i = 0; i < matched.length; i++) {
-    tb.push(matched[i].meta)
+    temp.push(deepClone(matched[i].meta))
   }
-  store.commit('SET_BREADCRUMBS', tb)
+  const last = temp.length - 1
+  // 如果有 query 则取第一个参数附加在 title 上
+  Object.keys(query).length && (temp[last].title += '：' + getFirst(query))
+  store.commit('SET_BREADCRUMBS', temp)
 }
 ```
 

@@ -70,7 +70,7 @@ function handleTagViewAndBreadcrumbsAndKeepAlive (to) {
     } else {
       addTagView(to)
     }
-    setBreadcrumbs(to.matched)
+    setBreadcrumbs(to.matched, to.query)
     handleKeepAlive(to)
   }
 }
