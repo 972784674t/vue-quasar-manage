@@ -211,13 +211,13 @@ export default {
       ],
       data: [
         {
-          name: 'Frozen Yogurt',
+          name: 'FrozenYogurt',
           calories: 159,
           fat: 6.0,
           carbs: 24
         },
         {
-          name: 'Ice cream sandwich',
+          name: 'IceCreamSandwich',
           calories: 237,
           fat: 9.0,
           carbs: 37
@@ -241,7 +241,7 @@ export default {
           carbs: 49
         },
         {
-          name: 'Jelly bean',
+          name: 'JellyBean',
           calories: 375,
           fat: 0.0,
           carbs: 94

@@ -25,20 +25,20 @@ const mutations = {
     resetRouter()
   },
 
-  // 新增tagView
+  // 新增 tagView
   ADD_TAG_VIEW: (state, payload) => {
     const size = state.tagView.length
     // 首次进入或刷新页面时，当前路由不是根路由
     if (!size && payload.fullPath !== '/') {
       state.tagView.push(payload)
+      return
     }
     // 为了避免 tagView 重复添加。 构建一个以 fullPath 为标识的数组 t[]
     const t = []
     for (let i = 0; i < size; i++) {
       t.push(state.tagView[i].fullPath)
     }
-    // 如果 t[] 中没有当前路由，则添加
-    if (t.indexOf(payload.fullPath) < 0 && size) {
+    if (t.indexOf(payload.fullPath) === -1) {
       state.tagView.push(payload)
     }
   },
