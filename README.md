@@ -25,10 +25,10 @@ Vue-Quasar-Manage 是一款中后台前端解决方案：
 
 [Github](https://972784674t.github.io/vue-quasar-manage/) | [Gitee 国内用户访问](https://incimo.gitee.io/vue-quasar-manage)
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1121/001642_63a6fa66_5663937.png "home.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0201/141556_ae23dd14_5663937.png "666.png")
 
 <p align="center">
-    <img src="https://images.gitee.com/uploads/images/2021/0123/174943_5c56f9c7_5663937.png" alt="android">
+    <img src="https://images.gitee.com/uploads/images/2021/0201/143433_c700edab_5663937.png" alt="android">
 </p>
 
 ### 更新日志
