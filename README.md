@@ -25,33 +25,69 @@ Vue-Quasar-Manage 是一款中后台前端解决方案：
 
 [Github](https://972784674t.github.io/vue-quasar-manage/) | [Gitee 国内用户访问](https://incimo.gitee.io/vue-quasar-manage)
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1121/001642_63a6fa66_5663937.png "home.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0201/141556_ae23dd14_5663937.png "666.png")
 
 <p align="center">
-    <img src="https://images.gitee.com/uploads/images/2021/0123/174943_5c56f9c7_5663937.png" alt="android">
+    <img src="https://images.gitee.com/uploads/images/2021/0201/143433_c700edab_5663937.png" alt="android">
 </p>
 
 ### 更新日志
 - *2020/12/3*    
-将```public```文件夹路径注入```vue```原型，方便静态资源引用
+  - 将```public```文件夹路径注入```vue```原型，方便静态资源引用
 - *2020/12/9*    
-更新到 v1.0.3 beta 版本，进行了性能优化。```Github```/```Gitee```的首屏加载速度得到较大的提升。 ```Gitee```访问从原先的 3.5s 左右，提升到 1s 左右。但```Github```访问收网络影响...此次更新将优化过程新增到```性能优化```导航项提供参考。
+  - 更新到 v1.0.3 beta 版本，进行了性能优化。```Github```/```Gitee```的首屏加载速度得到较大的提升。 ```Gitee```访问从原先的 3.5s 左右，提升到 1s 左右。但```Github```访问收网络影响...此次更新将优化过程新增到```性能优化```导航项提供参考。
 - *2020/12/24*    
-修复了一个内存泄漏的 bug，以及对 ICON 集合界面进行了渲染性能优化，并将优化过程新增到```性能优化```导航项提供参考。
-有同学反映侧边栏被选中时效果不明显，于是顺便增加了点样式
+  - 修复了一个内存泄漏的 bug，以及对 ICON 集合界面进行了渲染性能优化，并将优化过程新增到```性能优化```导航项提供参考。
+  - 有同学反映侧边栏被选中时效果不明显，于是顺便增加了点样式
 - *2020/12/31*  
-优化```<BaseContent>```的处理逻辑，解决关闭```tagView```后，重新进入对应页面依然会跳转到滚动记录位置的问题
+  - 优化```<BaseContent>```的处理逻辑，解决关闭```tagView```后，重新进入对应页面依然会跳转到滚动记录位置的问题
 - *2021/1/22*  
-1 重构```<tagView>```组件，使其更好的兼容多端环境， SPA / Electron / Mobile / Cordova 兼容良好  
-2 原先版本基于 ```quasar 1.3x```，有 bug，现版本更新为 ```quasar 1.5x```    
+  - 重构```<tagView>```组件，使其更好的兼容多端环境， SPA / Electron / Mobile / Cordova 兼容良好  
+  - 原先版本基于 ```quasar 1.3x```，有 bug，现版本更新为 ```quasar 1.5x```    
 原先项目如何升级：  
-2.1 删除 原先版本 ```package-lock.json``` 文件， ```node_modules``` 文件  
-2.2 重新运行 install 即可
+  - 删除 原先版本 ```package-lock.json``` 文件， ```node_modules``` 文件  
+  - 重新运行 install 即可
 - *2021/1/30*  
-1 修复在微信端```<tagView>```文本不居中的问题  
-2 路由```icon```改为非必要，优化没有```icon```时```<tagView>```和```<Breadcrumbs>```的显示问题
+  - 修复在微信端```<tagView>```文本不居中的问题  
+  - 路由```icon```改为非必要，优化没有```icon```时```<tagView>```和```<Breadcrumbs>```的显示问题
 - *2021/2/1*  
-1 当路由带```query```参数时，```<tagView>```和```<breadcrumbs>```会默认加上第一个参数的值作为标识并显示（之前沙雕了用的```params```）
+  - 当路由带```query```参数时，```<tagView>```和```<breadcrumbs>```会默认加上第一个参数的值作为标识并显示（之前沙雕了用的```params```）
+- *2021/2/5*  
+  - 针对第一个被开启的嵌套路由```<keep-alive>```缓存失效，需要进行一次路由切换才能正常缓存的问题：  
+经过测试是由于用来做嵌套路由的```<layout>```组件按需引入导致的，```<layout>```组件的按需引入由于是异步操作，会是嵌套路由的第一次拍平操作失效
+有两种解决方法：  
+
+方法 1 ： 如果你不想修改源码，在```asyncRoutes.js```中不使用按需引入```<layout>```即可  
+```js
+import layout from '../components/Layout/layout'
+
+{
+  path: '/start',
+  name: 'start',
+  component: layout,
+  children: [{...}]
+}
+```
+方法 2 （兼容按需加载）： 修改```permission.js```中的```handleKeepAlive```方法为 ```async/await```
+```js
+async function handleKeepAlive (to) {
+  if (to.matched && to.matched.length > 2) {
+    for (let i = 0; i < to.matched.length; i++) {
+      const element = to.matched[i]
+      if (element.components.default.name === 'layout') {
+        to.matched.splice(i, 1)
+        await handleKeepAlive(to)
+      }
+      if (typeof element.components.default === 'function') {
+        await element.components.default()
+        await handleKeepAlive(to)
+      }
+    }
+  }
+}
+```
+经过测试两种方式都可行，不过，总觉得递归和异步套着来一点都不爽 ┗( ▔, ▔ )┛，所以我用第一种...能简单解决的问题，何必复杂化捏...
+
 
 ### 如何运行
 请确保您的计算机已经安装了 ```Node.js``` 以及 ```git```，当前项目主要用于展示说明文档

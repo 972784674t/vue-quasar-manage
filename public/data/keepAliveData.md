@@ -99,7 +99,7 @@ export default {
 </script>
 ```
 
-### ==但是==：
+### 嵌套的```<router-view>```缓存
 如果遇到嵌套的```<router-view>```或者嵌套路由（这是很常见的操作），这个时候后面几层```<router-view>```中的组件缓存会出问题
 
 比如我有下面的三层结构：
@@ -152,6 +152,12 @@ export default {
 需要把嵌套的```<router-view>```拍平
 
 也就是在路由守卫中添加一个将无用的 layout 布局过消除的方法：
+:::tip
+下面提供了两个方法：
+- 使用方法一的话需要避免```layout```的按需加载，因为按需加载的异步操作会让第一个被开启的视图组件缓存失效，需要进行一次路由切换才能正常缓存的问题  
+
+- 第二个方法可以兼容```layout```的按需加载，但是感觉相对第一种方法比较麻烦
+::: 
 ```js
 router.beforeEach((to, from, next) => {
   ...
@@ -171,6 +177,26 @@ function handleKeepAlive (to) {
       if (element.components.default.name === 'layout') {
         to.matched.splice(i, 1)
         handleKeepAlive(to)
+      }
+    }
+  }
+}
+
+/**
+ * 方法 2 （兼容按需加载）： 
+ * @param to
+ */
+async function handleKeepAlive (to) {
+  if (to.matched && to.matched.length > 2) {
+    for (let i = 0; i < to.matched.length; i++) {
+      const element = to.matched[i]
+      if (element.components.default.name === 'layout') {
+        to.matched.splice(i, 1)
+        await handleKeepAlive(to)
+      }
+      if (typeof element.components.default === 'function') {
+        await element.components.default()
+        await handleKeepAlive(to)
       }
     }
   }

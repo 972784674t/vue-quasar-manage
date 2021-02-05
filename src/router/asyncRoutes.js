@@ -1,3 +1,4 @@
+import layout from '../components/Layout/layout'
 
 /**
  * 需要授权访问的路由
@@ -23,7 +24,7 @@ const asyncRoutesChildren = [
       icon: 'design_services',
       keepAlive: true
     },
-    component: () => import('../components/Layout/layout'),
+    component: layout,
     children: [
       {
         path: 'getting-started',
@@ -68,7 +69,7 @@ const asyncRoutesChildren = [
       title: '性能优化',
       icon: 'memory'
     },
-    component: () => import('../components/Layout/layout'),
+    component: layout,
     children: [
       {
         path: 'VolumeOptimization',
@@ -97,7 +98,7 @@ const asyncRoutesChildren = [
   {
     path: '/component',
     name: 'component',
-    component: () => import('../components/Layout/layout'),
+    component: layout,
     meta: {
       roles: ['admin', 'test'],
       title: '组件说明',
@@ -216,7 +217,7 @@ const asyncRoutesChildren = [
       title: '三级菜单',
       icon: 'filter_3'
     },
-    component: () => import('../components/Layout/layout'),
+    component: layout,
     children: [
       {
         path: 'menu-2',
@@ -227,7 +228,7 @@ const asyncRoutesChildren = [
           icon: 'filter_2',
           keepAlive: true
         },
-        component: () => import('../components/Layout/layout'),
+        component: layout,
         children: [
           {
             path: 'menu-3',

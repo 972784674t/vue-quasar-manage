@@ -77,6 +77,7 @@ function handleTagViewAndBreadcrumbsAndKeepAlive (to) {
 
 /**
  * 处理多余的 layout : router-view，让当前组件保持在第一层 index : router-view 之下
+ * 这个方法无法过滤用来做嵌套路由的按需加载的 <layout>
  * @param to
  */
 function handleKeepAlive (to) {
@@ -90,3 +91,23 @@ function handleKeepAlive (to) {
     }
   }
 }
+
+/**
+ * 这个方法可以过滤用来做嵌套路由的按需加载的 <layout>
+ * @param to
+ */
+// async function handleKeepAlive (to) {
+//   if (to.matched && to.matched.length > 2) {
+//     for (let i = 0; i < to.matched.length; i++) {
+//       const element = to.matched[i]
+//       if (element.components.default.name === 'layout') {
+//         to.matched.splice(i, 1)
+//         await handleKeepAlive(to)
+//       }
+//       if (typeof element.components.default === 'function') {
+//         await element.components.default()
+//         await handleKeepAlive(to)
+//       }
+//     }
+//   }
+// }
