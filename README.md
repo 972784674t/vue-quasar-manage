@@ -5,7 +5,7 @@
       <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">  
    <img src="https://img.shields.io/static/v1?label=Vue-Quasar-Manage&message=v1.0.7%20Beta&color=blue" alt="cimo">  
     <img src="https://img.shields.io/badge/vue-2.6.12-brightgreen.svg" alt="vue">  
-  <img src="https://img.shields.io/npm/v/quasar.svg?label=quasar&query=1.15.1">  
+  <img src="https://img.shields.io/static/v1?label=quasar&message=v1.15.1&color=blue">  
 </p>
 
 Vue-Quasar-Manage 是一款中后台前端解决方案：
