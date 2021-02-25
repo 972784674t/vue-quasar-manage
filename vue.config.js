@@ -6,6 +6,7 @@ module.exports = {
     // proxy: {
     //   '/api': {
     //     target: '你的 API 地址',
+    //     changeOrigin: true,
     //     pathRewrite: {
     //       '^/api': ''
     //     }
