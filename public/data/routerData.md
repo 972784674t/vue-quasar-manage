@@ -97,7 +97,7 @@ function constructionRouters (router, t) {
   // 根据存储在 store 中的用户权限，进行一次过滤
   t = router.filter(item => { return item.meta.roles.indexOf(store.getters.getRole) !== -1 })
   for (const i in t) {
-    // 如果有 chilren 就继续过滤 chilren
+    // 如果有 children 就继续过滤 children
     if (t[i].children) {
       t[i].children = constructionRouters(t[i].children)
     }

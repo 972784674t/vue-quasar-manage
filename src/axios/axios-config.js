@@ -15,8 +15,8 @@ const axios = Axios.create({
 axios.interceptors.request.use(
   config => {
     const token = sessionStorage.getItem('access_token')
-    if (token && config.type) {
-      config.headers.Authorization = 'Bearer ' + token
+    config.headers.Authorization = 'Bearer ' + token
+    if (config.type) {
       switch (config.type) {
         case 'FORM-DATA':
           config.transformRequest = [data => { return 'args=' + JSON.stringify(data) }]
@@ -44,6 +44,11 @@ axios.interceptors.response.use(
       color: 'warning',
       position: 'top',
       timeout: 1500
+    }
+    if (error.code === 'ECONNABORTED' || error.message.indexOf('timeout') !== -1 || error.message === 'Network Error') {
+      defaultNotify.message = '网络异常'
+      Notify.create(defaultNotify)
+      return Promise.reject(error)
     }
     switch (error.response.status) {
       case 403:
@@ -82,10 +87,8 @@ axios.interceptors.response.use(
         defaultNotify.message = 'HTTP版本不受支持(505)'
         Notify.create(defaultNotify)
         break
-    }
-    if (error.code === 'ECONNABORTED' && error.message.indexOf('timeout') !== -1) {
-      defaultNotify.message = '网络异常'
-      Notify.create(defaultNotify)
+      default:
+        break
     }
     return Promise.reject(error)
   }

@@ -6,7 +6,8 @@ Vue.prototype.$title = ' | Vue Quasar'
 // 侧边栏风格
 Vue.prototype.$SildeBar = 'hHh lpR fFf' // 风格二：lHh lpR fFf
 
-// axiois 中请求基地址，如果需要请在 axios/fetchData.js 中打开
+// axios 中请求基地址，如果需要请在 axios/axios-config.js 中打开
+// Vue.prototype.$baseURL = process.env.NODE_ENV === 'development' ? '/api/' : '生产环境 API'
 Vue.prototype.$baseURL = ''
 
 // 请求超时时间

@@ -3,6 +3,14 @@ module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? '/vue-quasar-manage/' : '/',
   devServer: {
     port: 8868
+    // proxy: {
+    //   '/api': {
+    //     target: '你的 API 地址',
+    //     pathRewrite: {
+    //       '^/api': ''
+    //     }
+    //   }
+    // }
   },
   pluginOptions: {
     quasar: {
