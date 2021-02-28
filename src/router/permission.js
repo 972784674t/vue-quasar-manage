@@ -31,10 +31,10 @@ router.beforeEach((to, from, next) => {
       next({ ...to, replace: true })
     }
   } else {
-    if (to.path !== '/logon') {
-      next({ path: '/logon' })
-    } else {
+    if (constantRoutes.some((item) => { return item.path === to.path })) {
       next()
+    } else {
+      next({ path: '/logon' })
     }
   }
 })
