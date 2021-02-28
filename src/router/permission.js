@@ -31,6 +31,7 @@ router.beforeEach((to, from, next) => {
       next({ ...to, replace: true })
     }
   } else {
+    // 如果要前往不需要授权的路由，则放行
     if (constantRoutes.some((item) => { return item.path === to.path })) {
       next()
     } else {
