@@ -15,7 +15,8 @@ const fetchData = query => {
     params: query.params, // 请求参数
     responseType: query.responseType || 'json', // 响应类型，默认为json
     auth: query.auth || { username: localStorage.getItem('access_token') },
-    data: query.data || '' // 请求体数据 （仅仅post可用）
+    data: query.data || '', // 请求体数据 （仅仅post可用）
+    type: query.type // 自定义请求类型，请看 axios-config.js
   })
 }
 
