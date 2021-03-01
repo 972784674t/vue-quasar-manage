@@ -29,7 +29,6 @@ axios.interceptors.request.use(
           break
       }
     }
-    console.log(config)
     return config
   },
   error => {
