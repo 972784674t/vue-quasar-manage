@@ -74,6 +74,9 @@ export default router
 2、有token说明已经登录，并继续判断用户是否有权限，没有的话就去请求权限
 3、如果用户有权限则去看看```store```中是否存有```accessRoutes```路由信息，如果有则放行进入对应的路由界面
 4、如果没有```accessRoutes```路由信息，则根据用户权限去匹配```asyncRoutes.js```中的权限信息，生成```accessRoutes```并存储在```store```中，同时使用```addRoutes(accessRoutes)```将这些路由添加到VUE项目中。
+:::tip
+如果你的```vue-router```版本比价高，会提示```addRoutes```已弃用，如果你不想出现这样的提示，可以使用扩展运算符完成该操作```addRoute(...accessRoutes)```，扩展运算符的功能之一就是不停的向方法添加参数
+:::
 5、每次路由跳转时，路由守卫都会执行上述操作
 
 代码请看```router/permission.js```

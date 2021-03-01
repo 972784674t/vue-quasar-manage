@@ -26,6 +26,8 @@ router.beforeEach((to, from, next) => {
       const userRole = sessionStorage.getItem('user_role')
       // 并根据权限设置对应的路由
       store.commit('SET_ROLES_AND_ROUTES', userRole)
+      // 如果提示 addRoutes 已弃用，使用扩展运算符完成该操作
+      // router.addRoute(...store.getters.getRoutes)
       router.addRoutes(store.getters.getRoutes)
       // 如果 addRoutes 并未完成，路由守卫会再执行一次
       next({ ...to, replace: true })
