@@ -1,7 +1,7 @@
 import store from '../../store/index'
 import router from '../../router'
 import _this from '../../main'
-import { getFirst } from '../../utils/clone-utils'
+import { getFirst } from '../../utils/cloneUtils'
 
 // 构造 tag-view 的元信息，如果符合条件( 不是公共路由 )就提交到 store，生成 tagView 元素
 export function addTagView (to) {

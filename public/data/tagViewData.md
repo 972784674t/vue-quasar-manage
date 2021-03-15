@@ -10,7 +10,7 @@
 components
 |-TagView
    |-tagView.vue                # tagView 源文件
-   |-tagViewUtils.js            # tagView 工具类： 增/删
+   |-TagViewUtils.js            # tagView 工具类： 增/删
 ```
 
 本项目中```tagView ```的作用不只是作为快捷导航使用。同时还作为页面缓存```<keep-alive>```中的标识使用，即，有 ```tagView```存在的话则对应页面的缓存也存在（该路由元信息中声明了```keepAlive: false```除外）， ```tagView```被关闭则对应页面缓存将被从内存中清除
@@ -39,7 +39,7 @@ tagView的实现并不复杂，不过处理逻辑挺复杂的，比如：
 
 下面是```tagView```事件处理入口，如果需要，请自行修改
 
-```mutations.js```中，```removeOneSide```和```removeATagView```方法在```tagViewUtils.js```里
+```mutations.js```中，```removeOneSide```和```removeATagView```方法在```TagViewUtils.js```里
 ```js
 /**
  * 移除 tagView

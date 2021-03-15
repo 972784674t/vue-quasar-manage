@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'toolbarTitle',
+  name: 'ToolbarTitle',
   data () {
     return {
       title: 'CIMO'

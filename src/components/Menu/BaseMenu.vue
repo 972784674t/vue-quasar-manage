@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { thumbStyleOfMenu } from '../BaseContent/thumbStyle'
+import { thumbStyleOfMenu } from '../BaseContent/ThumbStyle'
 import BaseMenuItem from './BaseMenuItem'
 import BottomLink from './BottomLink'
 export default {

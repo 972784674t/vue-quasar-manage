@@ -1,8 +1,8 @@
 import asyncRoutes from '../router/asyncRoutes'
 import constructionRouters from '../router/permissionUtils'
-import deepClone from '../utils/clone-utils'
+import deepClone from '../utils/cloneUtils'
 import router, { resetRouter } from '../router'
-import { removeATagView, removeOneSide } from '../components/TagView/tagViewUtils'
+import { removeATagView, removeOneSide } from '../components/TagView/TagViewUtils'
 
 const mutations = {
 

@@ -1,6 +1,6 @@
 ## Axios：在 VUE 实例中封装了一个全局请求工具类 fetchData
 :::tip
-```(axios/fetchData.js)```：封装了```post```和```FormData```的数据发送
+```(axios/FetchData.js)```：封装了```post```和```FormData```的数据发送
 :::
 
 ```js
@@ -21,7 +21,7 @@ const fetchData = query => {
     responseType: query.responseType || 'json', // 响应类型，默认为json
     auth: query.auth || { access_token: sessionStorage.getItem('access_token') },
     data: query.data || '', // 请求体数据 （仅仅post可用）
-    type: query.type // 自定义请求类型，请看 axios-config.js
+    type: query.type // 自定义请求类型，请看 AxiosConfig.js
   })
 }
 

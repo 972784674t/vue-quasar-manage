@@ -8,7 +8,7 @@ import router from './router/permission'
 import './config'
 
 // 全局 axios 工具类 fetchData
-import './axios/fetchData'
+import './axios/FetchData'
 
 // 第三方组件
 import animated from 'animate.css'

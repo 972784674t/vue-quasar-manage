@@ -1,4 +1,4 @@
-import layout from '../components/Layout/layout'
+import layout from '../components/Layout/Layout'
 
 /**
  * 需要授权访问的路由
@@ -6,14 +6,14 @@ import layout from '../components/Layout/layout'
 const asyncRoutesChildren = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     meta: {
       roles: ['admin', 'editor', 'test'],
       title: '主页',
       icon: 'home',
       keepAlive: true
     },
-    component: () => import('../views/home/home')
+    component: () => import('../views/home/Home')
   },
   {
     path: '/start',
@@ -28,36 +28,36 @@ const asyncRoutesChildren = [
     children: [
       {
         path: 'getting-started',
-        name: 'getting-started',
+        name: 'GettingStarted',
         meta: {
           roles: ['admin', 'editor'],
           title: '基础配置',
           icon: 'tune',
           keepAlive: true
         },
-        component: () => import('../views/router/getting-started')
+        component: () => import('../views/router/GettingStarted')
       },
       {
         path: 'router-config',
-        name: 'router-config',
+        name: 'RouterConfig',
         meta: {
           roles: ['admin', 'editor'],
           title: '路由配置',
           icon: 'multiple_stop',
           keepAlive: true
         },
-        component: () => import('../views/router/router-config')
+        component: () => import('../views/router/RouterConfig')
       },
       {
         path: 'my-menu',
-        name: 'my-menu',
+        name: 'MyMenu',
         meta: {
           roles: ['admin', 'test'],
           title: '关于菜单',
           icon: 'menu',
           keepAlive: true
         },
-        component: () => import('../views/router/my-menu')
+        component: () => import('../views/router/MyMenu')
       }
     ]
   },
@@ -72,7 +72,7 @@ const asyncRoutesChildren = [
     component: layout,
     children: [
       {
-        path: 'VolumeOptimization',
+        path: 'volume-optimization',
         name: 'VolumeOptimization',
         meta: {
           roles: ['admin', 'editor'],
@@ -83,15 +83,15 @@ const asyncRoutesChildren = [
         component: () => import('../views/optimization/VolumeOptimization')
       },
       {
-        path: 'renderOptimization',
-        name: 'renderOptimization',
+        path: 'render-optimization',
+        name: 'RenderOptimization',
         meta: {
           roles: ['admin', 'editor'],
           title: '渲染性能优化',
           icon: 'flip',
           keepAlive: true
         },
-        component: () => import('../views/optimization/renderOptimization')
+        component: () => import('../views/optimization/RenderOptimization')
       }
     ]
   },
@@ -109,40 +109,40 @@ const asyncRoutesChildren = [
     children: [
       {
         path: 'keep-alive-doc',
-        name: 'keep-alive-doc',
+        name: 'KeepaliveDoc',
         meta: {
           roles: ['admin', 'editor'],
           title: 'keep-alive 缓存',
           icon: 'select_all',
           keepAlive: true
         },
-        component: () => import('../views/components/keep-alive-doc')
+        component: () => import('../views/components/KeepaliveDoc')
       },
       {
         path: 'scrollDemo',
-        name: 'scrollDemo',
+        name: 'ScrollDemo',
         meta: {
           roles: ['admin', 'editor'],
           title: '滚动区域',
           icon: 'swap_vert',
           keepAlive: true
         },
-        component: () => import('../views/components/scrollDemo')
+        component: () => import('../views/components/ScrollDemo')
       },
       {
         path: 'tagViewDemo',
-        name: 'tagViewDemo',
+        name: 'TagViewDemo',
         meta: {
           roles: ['admin', 'editor'],
           title: 'tagView',
           icon: 'exit_to_app',
           keepAlive: true
         },
-        component: () => import('../views/components/tagViewDemo')
+        component: () => import('../views/components/TagViewDemo')
       },
       {
         path: 'breadcrumbsDemo',
-        name: 'breadcrumbsDemo',
+        name: 'BreadcrumbsDemo',
         meta: {
           roles: ['admin', 'editor'],
           title: '面包屑',
@@ -150,64 +150,64 @@ const asyncRoutesChildren = [
           keepAlive: true,
           isHidden: false
         },
-        component: () => import('../views/components/breadCrumbsDemo')
+        component: () => import('../views/components/BreadcrumbsDemo')
       },
       {
         path: 'icon',
-        name: 'icon',
+        name: 'Icon',
         meta: {
           roles: ['admin', 'editor'],
           title: 'icon 集合',
           icon: 'grain',
           keepAlive: true
         },
-        component: () => import('../views/components/icon')
+        component: () => import('../views/components/Icon')
       },
       {
         path: 'loading-bar',
-        name: 'loading-bar',
+        name: 'LoadingBar',
         meta: {
           roles: ['admin', 'test'],
           title: 'loading-bar',
           icon: 'rotate_right',
           keepAlive: true
         },
-        component: () => import('../views/components/loading-bar')
+        component: () => import('../views/components/LoadingBar')
       },
       {
         path: 'markdown',
-        name: 'markdown',
+        name: 'Markdown',
         meta: {
           roles: ['admin', 'test'],
           title: 'markdown',
           icon: 'edit_road',
           keepAlive: true
         },
-        component: () => import('../views/components/markdown')
+        component: () => import('../views/components/Markdown')
       },
       {
         path: 'json',
-        name: 'json',
+        name: 'Json',
         meta: {
           roles: ['admin', 'test'],
           title: 'json',
           icon: 'settings_ethernet',
           keepAlive: true
         },
-        component: () => import('../views/components/json')
+        component: () => import('../views/components/Json')
       }
     ]
   },
   {
     path: '/axios',
-    name: 'axios',
+    name: 'Axios',
     meta: {
       roles: ['admin', 'editor'],
       title: 'axios',
       icon: 'http',
       keepAlive: true
     },
-    component: () => import('../views/axios/axios.vue')
+    component: () => import('../views/axios/Axios.vue')
   },
   {
     path: '/menu-1',
@@ -215,7 +215,8 @@ const asyncRoutesChildren = [
     meta: {
       roles: ['admin', 'test'],
       title: '三级菜单',
-      icon: 'filter_3'
+      icon: 'filter_3',
+      keepAlive: true
     },
     component: layout,
     children: [
@@ -232,14 +233,14 @@ const asyncRoutesChildren = [
         children: [
           {
             path: 'menu-3',
-            name: 'menu-3',
+            name: 'Menu-3',
             meta: {
               roles: ['admin', 'test'],
               title: '菜单 1-2',
               icon: 'filter_1',
               keepAlive: true
             },
-            component: () => import('../views/components/menu-3.vue')
+            component: () => import('../views/components/Menu-3.vue')
           }
         ]
       }
@@ -256,7 +257,7 @@ const asyncRoutesChildren = [
   },
   {
     path: '/my-lottie',
-    name: 'my-lottie',
+    name: 'Lottie',
     meta: {
       roles: ['admin', 'editor'],
       title: 'lottie 动效',
@@ -264,29 +265,29 @@ const asyncRoutesChildren = [
       icon: 'videocam',
       keepAlive: true
     },
-    component: () => import('../views/lottie/lottie')
+    component: () => import('../views/lottie/Lottie')
   },
   {
     path: '/tableDetail',
-    name: 'tableDetail',
+    name: 'TableDetail',
     meta: {
       roles: ['admin', 'editor'],
       title: 'Treats 详情',
       icon: 'blur_linear',
       isHidden: true
     },
-    component: () => import('../views/home/tableDetail')
+    component: () => import('../views/home/TableDetail')
   },
   {
     path: '/cimo',
-    name: 'cimo',
+    name: 'Cimo',
     meta: {
       roles: ['admin', 'editor'],
       title: '关于作者',
       icon: 'fab fa-studiovinari',
       isHidden: true
     },
-    component: () => import('../views/components/cimo')
+    component: () => import('../views/components/Cimo')
   },
   {
     path: '*', // 此处需置于最底部
@@ -303,7 +304,7 @@ const asyncRoutes = [
     path: '/',
     name: 'index',
     redirect: '/',
-    component: () => import('../views/index'),
+    component: () => import('../views/Index'),
     meta: {
       // index 路由不参与权限过滤，因此不用设置权限
       // roles: ['admin', 'editor', 'test']

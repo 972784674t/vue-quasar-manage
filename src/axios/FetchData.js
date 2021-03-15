@@ -1,4 +1,4 @@
-import _axios from '../axios/axios-config'
+import _axios from './AxiosConfig'
 import Vue from 'vue'
 
 /**

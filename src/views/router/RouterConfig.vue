@@ -12,7 +12,7 @@ import BaseContent from '../../components/BaseContent/BaseContent'
 import SkeletonDemo from '../../components/Skeleton/SkeletonDemo'
 
 export default {
-  name: 'router-config',
+  name: 'RouterConfig',
   components: { SkeletonDemo, BaseContent },
   data () {
     return {

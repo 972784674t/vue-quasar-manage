@@ -1,5 +1,5 @@
 import store from '../../store/index'
-import deepClone, { getFirst } from '../../../src/utils/clone-utils'
+import deepClone, { getFirst } from '../../utils/cloneUtils'
 
 /**
  * 获取 matched 中的路径 title，并生成面包屑

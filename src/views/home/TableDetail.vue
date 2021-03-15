@@ -8,7 +8,7 @@
 import BaseContent from '../../components/BaseContent/BaseContent'
 
 export default {
-  name: 'tableDetail',
+  name: 'TableDetail',
   components: { BaseContent },
   data () {
     return {

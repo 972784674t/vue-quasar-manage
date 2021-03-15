@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { thumbStyle } from './thumbStyle'
+import { thumbStyle } from './ThumbStyle'
 
 export default {
   name: 'BaseContent',

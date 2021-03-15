@@ -74,7 +74,7 @@
 import BaseContent from '../../components/BaseContent/BaseContent'
 
 export default {
-  name: 'cimo',
+  name: 'Cimo',
   components: { BaseContent }
 }
 </script>

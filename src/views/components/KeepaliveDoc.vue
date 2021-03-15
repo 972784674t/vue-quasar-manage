@@ -12,7 +12,7 @@ import BaseContent from '../../components/BaseContent/BaseContent'
 import SkeletonDemo from '../../components/Skeleton/SkeletonDemo'
 
 export default {
-  name: 'keep-alive-doc',
+  name: 'KeepaliveDoc',
   components: { SkeletonDemo, BaseContent },
   data () {
     return {

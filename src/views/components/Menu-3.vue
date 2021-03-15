@@ -12,7 +12,7 @@ import BaseContent from '../../components/BaseContent/BaseContent'
 import jsonView from 'vue-json-views'
 
 export default {
-  name: 'menu-3',
+  name: 'Menu-3',
   components: {
     BaseContent,
     jsonView

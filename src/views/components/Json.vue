@@ -3,7 +3,7 @@
     <div class="base-markdown-content">
       <h5>菜单数据结构</h5>
       <p>使用递归实现，支持无限扩展，也可以去components/menu/ 自定义菜单</p>
-      <p>json 组件 ： <a href="https://zhaoxuhui1122.github.io/vue-json-view/">vue-json-view</a></p>
+      <p>json 组件 ： <a href="https://zhaoxuhui1122.github.io/vue-json-view/Json.vue">vue-json-view</a></p>
       <json-view theme="one-dark" :data="menuList"/>
     </div>
   </base-content>
@@ -14,7 +14,7 @@ import BaseContent from '../../components/BaseContent/BaseContent'
 import jsonView from 'vue-json-views'
 
 export default {
-  name: 'json',
+  name: 'Json',
   components: {
     BaseContent,
     jsonView

@@ -6,7 +6,7 @@
 import lottie from 'lottie-web'
 
 export default {
-  name: 'lottie-web-cimo',
+  name: 'LottieWebCimo',
   data () {
     return {
       lottie: {}

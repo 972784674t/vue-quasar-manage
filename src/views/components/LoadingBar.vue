@@ -10,8 +10,9 @@
 <script>
 import BaseContent from '../../components/BaseContent/BaseContent'
 import SkeletonDemo from '../../components/Skeleton/SkeletonDemo'
+
 export default {
-  name: 'renderOptimization',
+  name: 'LoadingBar',
   components: { SkeletonDemo, BaseContent },
   data () {
     return {
@@ -23,13 +24,13 @@ export default {
     getMsg () {
       this.isLoadingVisible = !this.isLoadingVisible
       const query = {
-        url: this.$PUBLIC_PATH + 'data/renderOptimizationData.md',
+        url: this.$PUBLIC_PATH + 'data/loadingBarData.md',
         method: 'get',
         responseType: 'text'
       }
       this.$fetchData(query).then(res => {
-        this.isLoadingVisible = !this.isLoadingVisible
         this.content = res.data
+        this.isLoadingVisible = !this.isLoadingVisible
       }).catch(error => {
         console.log(error)
       })

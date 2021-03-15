@@ -69,10 +69,10 @@
 </template>
 
 <script>
-import LottieWebCimo from '../../components/LottieWebCimo/lottie-web-cimo'
+import LottieWebCimo from '../../components/LottieWebCimo/LottieWebCimo'
 
 export default {
-  name: 'logon',
+  name: 'Logon',
   data () {
     return {
       isPwd: true,

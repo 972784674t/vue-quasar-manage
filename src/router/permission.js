@@ -3,8 +3,8 @@ import router from './index'
 import LoadingBar from '../components/LoadingBar/LoadingBar'
 import store from '../store/index'
 import constantRoutes from './constantRoutes'
-import { addTagView, setTagView } from '../components/TagView/tagViewUtils'
-import { setBreadcrumbs } from '../components/Breadcrumbs/breadcrumbsUtils'
+import { addTagView, setTagView } from '../components/TagView/TagViewUtils'
+import { setBreadcrumbs } from '../components/Breadcrumbs/BreadcrumbsUtils'
 
 router.beforeEach((to, from, next) => {
   // 成功登录后处理 TAGVIEW 和 面包屑
@@ -87,7 +87,7 @@ function handleKeepAlive (to) {
   if (to.matched && to.matched.length > 2) {
     for (let i = 0; i < to.matched.length; i++) {
       const element = to.matched[i]
-      if (element.components.default.name === 'layout') {
+      if (element.components.default.name === 'Layout') {
         to.matched.splice(i, 1)
         handleKeepAlive(to)
       }
@@ -103,7 +103,7 @@ function handleKeepAlive (to) {
 //   if (to.matched && to.matched.length > 2) {
 //     for (let i = 0; i < to.matched.length; i++) {
 //       const element = to.matched[i]
-//       if (element.components.default.name === 'layout') {
+//       if (element.components.default.name === 'Layout') {
 //         to.matched.splice(i, 1)
 //         await handleKeepAlive(to)
 //       }

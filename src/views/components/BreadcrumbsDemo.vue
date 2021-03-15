@@ -12,7 +12,7 @@ import BaseContent from '../../components/BaseContent/BaseContent'
 import SkeletonDemo from '../../components/Skeleton/SkeletonDemo'
 
 export default {
-  name: 'loading-bar',
+  name: 'BreadcrumbsDemo',
   components: { SkeletonDemo, BaseContent },
   data () {
     return {
@@ -24,7 +24,7 @@ export default {
     getMsg () {
       this.isLoadingVisible = !this.isLoadingVisible
       const query = {
-        url: this.$PUBLIC_PATH + 'data/loadingBarData.md',
+        url: this.$PUBLIC_PATH + 'data/breadcrumbsData.md',
         method: 'get',
         responseType: 'text'
       }

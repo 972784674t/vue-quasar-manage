@@ -40,10 +40,10 @@
 
 <script>
 import BaseContent from '../../components/BaseContent/BaseContent'
-import LottieWebCimo from '../../components/LottieWebCimo/lottie-web-cimo'
+import LottieWebCimo from '../../components/LottieWebCimo/LottieWebCimo'
 
 export default {
-  name: 'my-lottie',
+  name: 'Lottie',
   components: {
     LottieWebCimo,
     BaseContent

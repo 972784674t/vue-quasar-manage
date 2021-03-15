@@ -42,7 +42,7 @@ import * as materialIconsSet from '@quasar/extras/material-icons'
 import * as fontawesomeSet from '@quasar/extras/fontawesome-v5'
 import { copyToClipboard } from 'quasar'
 export default {
-  name: 'icon_3',
+  name: 'Icon',
   components: { BaseContent },
   data () {
     return {

@@ -83,7 +83,7 @@
 <script>
 
 export default {
-  name: 'tagView',
+  name: 'TagView',
   data () {
     return {
       tagView: this.$store.getters.getTagView

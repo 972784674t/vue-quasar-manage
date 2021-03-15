@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import LottieWebCimo from '../LottieWebCimo/lottie-web-cimo'
+import LottieWebCimo from '../LottieWebCimo/LottieWebCimo'
 
 export default {
   name: 'NoFound404',
