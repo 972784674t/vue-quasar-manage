@@ -1,6 +1,6 @@
 import asyncRoutes from '../router/asyncRoutes'
 import constructionRouters from '../router/permissionUtils'
-import deepClone from '../utils/cloneUtils'
+import deepClone from '../utils/CloneUtils'
 import router, { resetRouter } from '../router'
 import { removeATagView, removeOneSide } from '../components/TagView/TagViewUtils'
 
@@ -15,9 +15,14 @@ const mutations = {
     state.routes = accessRoutes
   },
 
+  // 将动态获取的路由设置到 store 中
+  SET_ROLES: (state, payload) => {
+    state.routes = payload
+  },
+
   // 退出登录
   LOGOUT: (state, payload) => {
-    state.role = 'admin'
+    state.role = ''
     state.routes = []
     state.tagView = []
     sessionStorage.removeItem('access_token')

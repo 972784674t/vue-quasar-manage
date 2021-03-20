@@ -2,7 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
 import './quasar'
+
+// 前端根据角色处理路由
 import router from './router/permission'
+
+// 后端返回动态路由
+// import router from './router/permissionWithDynamicRouter'
 
 // 系统全局配置
 import './config'

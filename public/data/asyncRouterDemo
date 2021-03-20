@@ -1,0 +1,275 @@
+[{
+	"path": "/",
+	"name": "Home",
+	"meta": {
+		"roles": [],
+		"title": "主页",
+		"icon": "home",
+		"keepAlive": true
+	},
+	"component": "views/home/Home.vue"
+}, {
+	"path": "/start",
+	"name": "start",
+	"meta": {
+		"roles": [],
+		"title": "快速起步",
+		"icon": "design_services",
+		"keepAlive": true
+	},
+	"component": "Layout",
+	"children": [{
+		"path": "getting-started",
+		"name": "GettingStarted",
+		"meta": {
+			"roles": [],
+			"title": "基础配置",
+			"icon": "tune",
+			"keepAlive": true
+		},
+		"component": "views/router/GettingStarted.vue"
+	}, {
+		"path": "router-config",
+		"name": "RouterConfig",
+		"meta": {
+			"roles": [],
+			"title": "路由配置",
+			"icon": "multiple_stop",
+			"keepAlive": true
+		},
+		"component": "views/router/RouterConfig.vue"
+	}, {
+		"path": "my-menu",
+		"name": "MyMenu",
+		"meta": {
+			"roles": [],
+			"title": "关于菜单",
+			"icon": "menu",
+			"keepAlive": true
+		},
+		"component": "views/router/MyMenu.vue"
+	}, {
+		"path": "async-router",
+		"name": "AsyncRouter",
+		"meta": {
+			"roles": [],
+			"title": "动态路由",
+			"icon": "all_inclusive",
+			"keepAlive": true
+		},
+		"component": "views/router/AsyncRouter.vue"
+	}, {
+		"path": "async-router-impl",
+		"name": "AsyncRouterImpl",
+		"meta": {
+			"roles": [],
+			"title": "动态路由实现思路",
+			"keepAlive": true
+		},
+		"component": "views/router/AsyncRouterImpl.vue"
+	}]
+}, {
+	"path": "/optimization",
+	"name": "optimization",
+	"meta": {
+		"roles": [],
+		"title": "性能优化",
+		"icon": "memory"
+	},
+	"component": "Layout",
+	"children": [{
+		"path": "volume-optimization",
+		"name": "VolumeOptimization",
+		"meta": {
+			"roles": [],
+			"title": "体积优化",
+			"icon": "miscellaneous_services",
+			"keepAlive": true
+		},
+		"component": "views/optimization/VolumeOptimization.vue"
+	}, {
+		"path": "render-optimization",
+		"name": "RenderOptimization",
+		"meta": {
+			"roles": [],
+			"title": "渲染性能优化",
+			"icon": "flip",
+			"keepAlive": true
+		},
+		"component": "views/optimization/RenderOptimization.vue"
+	}]
+}, {
+	"path": "/component",
+	"name": "component",
+	"component": "Layout",
+	"meta": {
+		"roles": [],
+		"title": "组件说明",
+		"icon": "apps",
+		"isOpen": true,
+		"isHidden": false
+	},
+	"children": [{
+		"path": "keep-alive-doc",
+		"name": "KeepaliveDoc",
+		"meta": {
+			"roles": [],
+			"title": "keep-alive 缓存",
+			"icon": "select_all",
+			"keepAlive": true
+		},
+		"component": "views/components/KeepaliveDoc.vue"
+	}, {
+		"path": "scrollDemo",
+		"name": "ScrollDemo",
+		"meta": {
+			"roles": [],
+			"title": "滚动区域",
+			"icon": "swap_vert",
+			"keepAlive": true
+		},
+		"component": "views/components/ScrollDemo.vue"
+	}, {
+		"path": "tagViewDemo",
+		"name": "TagViewDemo",
+		"meta": {
+			"roles": [],
+			"title": "tagView",
+			"icon": "exit_to_app",
+			"keepAlive": true
+		},
+		"component": "views/components/TagViewDemo.vue"
+	}, {
+		"path": "breadcrumbsDemo",
+		"name": "BreadcrumbsDemo",
+		"meta": {
+			"roles": [],
+			"title": "面包屑",
+			"icon": "clear_all",
+			"keepAlive": true,
+			"isHidden": false
+		},
+		"component": "views/components/BreadcrumbsDemo.vue"
+	}, {
+		"path": "icon",
+		"name": "Icon",
+		"meta": {
+			"roles": [],
+			"title": "icon 集合",
+			"icon": "grain",
+			"keepAlive": true
+		},
+		"component": "views/components/Icon.vue"
+	}, {
+		"path": "loading-bar",
+		"name": "LoadingBar",
+		"meta": {
+			"roles": [],
+			"title": "loading-bar",
+			"icon": "rotate_right",
+			"keepAlive": true
+		},
+		"component": "views/components/LoadingBar.vue"
+	}, {
+		"path": "markdown",
+		"name": "Markdown",
+		"meta": {
+			"roles": [],
+			"title": "markdown",
+			"icon": "edit_road",
+			"keepAlive": true
+		},
+		"component": "views/components/Markdown.vue"
+	}, {
+		"path": "json",
+		"name": "Json",
+		"meta": {
+			"roles": [],
+			"title": "json",
+			"icon": "settings_ethernet",
+			"keepAlive": true
+		},
+		"component": "views/components/Json.vue"
+	}]
+}, {
+	"path": "/axios",
+	"name": "Axios",
+	"meta": {
+		"roles": [],
+		"title": "axios",
+		"icon": "http",
+		"keepAlive": true
+	},
+	"component": "views/axios/Axios.vue"
+}, {
+	"path": "/menu-1",
+	"name": "menu-1",
+	"meta": {
+		"roles": [],
+		"title": "三级菜单",
+		"icon": "filter_3",
+		"keepAlive": true
+	},
+	"component": "Layout",
+	"children": [{
+		"path": "menu-2",
+		"name": "menu-2",
+		"meta": {
+			"roles": [],
+			"title": "菜单 1-1",
+			"icon": "filter_2",
+			"keepAlive": true
+		},
+		"component": "Layout",
+		"children": [{
+			"path": "menu-3",
+			"name": "Menu-3",
+			"meta": {
+				"roles": [],
+				"title": "菜单 1-2",
+				"icon": "filter_1",
+				"keepAlive": true
+			},
+			"component": "views/components/Menu-3.vue"
+		}]
+	}]
+}, {
+	"path": "http://www.quasarchs.com/vue-components/button",
+	"name": "external-link",
+	"meta": {
+		"roles": [],
+		"title": "外部链接/更多组件",
+		"icon": "send"
+	}
+}, {
+	"path": "/my-lottie",
+	"name": "Lottie",
+	"meta": {
+		"roles": [],
+		"title": "lottie 动效",
+		"itemLabel": "MY SHARE",
+		"icon": "videocam",
+		"keepAlive": true
+	},
+	"component": "views/lottie/Lottie.vue"
+}, {
+	"path": "/tableDetail",
+	"name": "TableDetail",
+	"meta": {
+		"roles": [],
+		"title": "Treats 详情",
+		"icon": "blur_linear",
+		"isHidden": true
+	},
+	"component": "views/home/TableDetail.vue"
+}, {
+	"path": "/cimo",
+	"name": "Cimo",
+	"meta": {
+		"title": "关于作者",
+		"icon": "fab fa-studiovinari",
+		"isHidden": true,
+		"roles": []
+	},
+	"component": "views/components/Cimo.vue"
+}]

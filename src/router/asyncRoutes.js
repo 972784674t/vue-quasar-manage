@@ -13,7 +13,7 @@ const asyncRoutesChildren = [
       icon: 'home',
       keepAlive: true
     },
-    component: () => import('../views/home/Home')
+    component: () => import('@/views/home/Home')
   },
   {
     path: '/start',
@@ -35,7 +35,7 @@ const asyncRoutesChildren = [
           icon: 'tune',
           keepAlive: true
         },
-        component: () => import('../views/router/GettingStarted')
+        component: () => import('@/views/router/GettingStarted')
       },
       {
         path: 'router-config',
@@ -46,7 +46,7 @@ const asyncRoutesChildren = [
           icon: 'multiple_stop',
           keepAlive: true
         },
-        component: () => import('../views/router/RouterConfig')
+        component: () => import('@/views/router/RouterConfig')
       },
       {
         path: 'my-menu',
@@ -57,7 +57,28 @@ const asyncRoutesChildren = [
           icon: 'menu',
           keepAlive: true
         },
-        component: () => import('../views/router/MyMenu')
+        component: () => import('@/views/router/MyMenu')
+      },
+      {
+        path: 'async-router',
+        name: 'AsyncRouter',
+        meta: {
+          roles: ['admin', 'editor'],
+          title: '动态路由',
+          icon: 'all_inclusive',
+          keepAlive: true
+        },
+        component: () => import('@/views/router/AsyncRouter')
+      },
+      {
+        path: 'async-router-impl',
+        name: 'AsyncRouterImpl',
+        meta: {
+          roles: ['admin', 'editor'],
+          title: '动态路由实现思路',
+          keepAlive: true
+        },
+        component: () => import('@/views/router/AsyncRouterImpl')
       }
     ]
   },
@@ -80,7 +101,7 @@ const asyncRoutesChildren = [
           icon: 'miscellaneous_services',
           keepAlive: true
         },
-        component: () => import('../views/optimization/VolumeOptimization')
+        component: () => import('@/views/optimization/VolumeOptimization')
       },
       {
         path: 'render-optimization',
@@ -91,7 +112,7 @@ const asyncRoutesChildren = [
           icon: 'flip',
           keepAlive: true
         },
-        component: () => import('../views/optimization/RenderOptimization')
+        component: () => import('@/views/optimization/RenderOptimization')
       }
     ]
   },
@@ -116,7 +137,7 @@ const asyncRoutesChildren = [
           icon: 'select_all',
           keepAlive: true
         },
-        component: () => import('../views/components/KeepaliveDoc')
+        component: () => import('@/views/components/KeepaliveDoc')
       },
       {
         path: 'scrollDemo',
@@ -127,7 +148,7 @@ const asyncRoutesChildren = [
           icon: 'swap_vert',
           keepAlive: true
         },
-        component: () => import('../views/components/ScrollDemo')
+        component: () => import('@/views/components/ScrollDemo')
       },
       {
         path: 'tagViewDemo',
@@ -138,7 +159,7 @@ const asyncRoutesChildren = [
           icon: 'exit_to_app',
           keepAlive: true
         },
-        component: () => import('../views/components/TagViewDemo')
+        component: () => import('@/views/components/TagViewDemo')
       },
       {
         path: 'breadcrumbsDemo',
@@ -150,7 +171,7 @@ const asyncRoutesChildren = [
           keepAlive: true,
           isHidden: false
         },
-        component: () => import('../views/components/BreadcrumbsDemo')
+        component: () => import('@/views/components/BreadcrumbsDemo')
       },
       {
         path: 'icon',
@@ -161,7 +182,7 @@ const asyncRoutesChildren = [
           icon: 'grain',
           keepAlive: true
         },
-        component: () => import('../views/components/Icon')
+        component: () => import('@/views/components/Icon')
       },
       {
         path: 'loading-bar',
@@ -172,7 +193,7 @@ const asyncRoutesChildren = [
           icon: 'rotate_right',
           keepAlive: true
         },
-        component: () => import('../views/components/LoadingBar')
+        component: () => import('@/views/components/LoadingBar')
       },
       {
         path: 'markdown',
@@ -183,7 +204,7 @@ const asyncRoutesChildren = [
           icon: 'edit_road',
           keepAlive: true
         },
-        component: () => import('../views/components/Markdown')
+        component: () => import('@/views/components/Markdown')
       },
       {
         path: 'json',
@@ -194,7 +215,7 @@ const asyncRoutesChildren = [
           icon: 'settings_ethernet',
           keepAlive: true
         },
-        component: () => import('../views/components/Json')
+        component: () => import('@/views/components/Json')
       }
     ]
   },
@@ -207,13 +228,13 @@ const asyncRoutesChildren = [
       icon: 'http',
       keepAlive: true
     },
-    component: () => import('../views/axios/Axios.vue')
+    component: () => import('@/views/axios/Axios.vue')
   },
   {
     path: '/menu-1',
     name: 'menu-1',
     meta: {
-      roles: ['admin', 'test'],
+      roles: ['admin'],
       title: '三级菜单',
       icon: 'filter_3',
       keepAlive: true
@@ -240,7 +261,7 @@ const asyncRoutesChildren = [
               icon: 'filter_1',
               keepAlive: true
             },
-            component: () => import('../views/components/Menu-3.vue')
+            component: () => import('@/views/components/Menu-3.vue')
           }
         ]
       }
@@ -265,7 +286,7 @@ const asyncRoutesChildren = [
       icon: 'videocam',
       keepAlive: true
     },
-    component: () => import('../views/lottie/Lottie')
+    component: () => import('@/views/lottie/Lottie')
   },
   {
     path: '/tableDetail',
@@ -276,24 +297,25 @@ const asyncRoutesChildren = [
       icon: 'blur_linear',
       isHidden: true
     },
-    component: () => import('../views/home/TableDetail')
+    component: () => import('@/views/home/TableDetail')
   },
   {
     path: '/cimo',
     name: 'Cimo',
     meta: {
-      roles: ['admin', 'editor'],
       title: '关于作者',
       icon: 'fab fa-studiovinari',
       isHidden: true
     },
-    component: () => import('../views/components/Cimo')
+    component: () => import('@/views/components/Cimo')
   },
   {
     path: '*', // 此处需置于最底部
+    name: '404',
     redirect: '/NoFound404',
     meta: {
-      roles: ['admin', 'test'],
+      title: '404',
+      icon: 'fab fa-studiovinari',
       isHidden: true
     }
   }
@@ -304,13 +326,11 @@ const asyncRoutes = [
     path: '/',
     name: 'index',
     redirect: '/',
-    component: () => import('../views/Index'),
-    meta: {
-      // index 路由不参与权限过滤，因此不用设置权限
-      // roles: ['admin', 'editor', 'test']
-    },
+    component: () => import('@/views/Index'),
     children: asyncRoutesChildren
   }
 ]
 
 export default asyncRoutes
+
+export { asyncRoutesChildren }
