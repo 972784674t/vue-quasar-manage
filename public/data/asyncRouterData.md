@@ -144,7 +144,7 @@ export default router
 到这里从后端获取路由的操作就结束了，其实就是路由的数据来源改变。
 
 :::tip
-如果你只希望知道如何使用，请看```动态路由```的源码，同时记得在```main.js```中使用专门用于动态路由的鉴权工具```permissionWithDynamicRouter```即可
+如果你只希望知道如何使用，请看[```动态路由```](https://github.com/972784674t/vue-quasar-manage/blob/master/src/views/router/AsyncRouter.vue)的源码，同时记得在```main.js```中使用专门用于动态路由的鉴权工具```permissionWithDynamicRouter```即可
 ```js
 // 前端根据角色处理路由
 // import router from './router/permission'
