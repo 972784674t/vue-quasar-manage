@@ -172,7 +172,7 @@ import router from './router/permissionWithDynamicRouter'
 import Layout from '../components/Layout/Layout'
 
 /**
- * 将后台传入的 router 字符串转化为 vue-router 可用的对象
+ * 将后端传入的 router 字符串转化为 vue-router 可用的对象
  * @param jsonRouter 后台路由
  * @param t 占存变量，用于返回值（不需要传参）
  */
@@ -202,7 +202,7 @@ function handleComponent (component) {
 /**
  * 将 vue 路由转换为 json 字符串
  * 将 asyncRouters 的 roles 初始化为空，同时处理 Component 的懒加载：
- * component: () => import('../views/home/Home') 转换为 component: '../views/home/Home'
+ * component: () => import('../views/home/Home') 转换为 component: 'views/home/Home'
  * @param asyncRouters
  * @returns {Promise<void>} 处理后的 asyncRouters JSON 字符串
  */
@@ -226,26 +226,48 @@ export async function handleAsyncRouterToJson (asyncRouters) {
  * @param asyncRouters
  * @returns {Promise<void>}
  */
-async function handleAsyncRouterComponentToJson (asyncRouters) {
+export async function handleAsyncRouterComponentToJson (asyncRouters) {
   for (const item of asyncRouters) {
     // 如果 component 是懒加载，则执行它
     if (typeof item.component === 'function') {
       const c = await item.component()
-      // 正则将地址中的 src 替换
+      // 使用正则表达式将地址中的 src 替换
       item.component = c.default.__file.replace(/src\//, '')
     } else if (item.component) {
       item.component = item.component.name
     }
     if (item.children) {
-      await this.handleAsyncRouterComponentToJson(item.children)
+      await handleAsyncRouterComponentToJson(item.children)
     }
     // 当遍历到 * （404）路由时，说明遍历完成
     if (item.path === '*') {
       // 去除 404 路由，在新增路由时自动添加
       asyncRouters.pop()
-      console.log(JSON.stringify(asyncRouters))  // 输出转换后的 JSON 格式路由 
+      return asyncRouters
     }
   }
+}
+
+/**
+ * 用于添加新角色和对应的路由
+ * 使用 selectedRouter 过滤 baseRouter 中的路由，得到新的角色路由（广度优先）
+ * @param baseRouter 基础路由
+ * @param selectedRouter：Array  被选中的路由标识
+ * @param t 暂存变量
+ * @returns {Promise<void>} 处理后的 asyncRouters JSON 字符串
+ */
+export function handleBaseRouterToRolesRouter (baseRouter, selectedRouter, t) {
+  t = baseRouter.filter(item => {
+    return selectedRouter.some(s => {
+      return s === item.name
+    })
+  })
+  for (const item of t) {
+    if (item.children) {
+      item.children = handleBaseRouterToRolesRouter(item.children, selectedRouter)
+    }
+  }
+  return t
 }
 ```
 不仅如此，在可视化选择动态路由的 Demo 中，用到了路由对象根据选中的路由标识数组，过滤路由的方法

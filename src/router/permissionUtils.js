@@ -73,7 +73,7 @@ export async function handleAsyncRouterToJson (asyncRouters) {
 
 /**
  * 处理 Component 的懒加载
- * component: () => import('../views/home/Home') 转换为 component: '../views/home/Home'
+ * component: () => import('../views/home/Home') 转换为 component: 'views/home/Home'
  * @param asyncRouters
  * @returns {Promise<void>}
  */
