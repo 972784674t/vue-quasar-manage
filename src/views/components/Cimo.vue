@@ -2,7 +2,7 @@
   <base-content>
     <div class="base-markdown-content">
       <h2>1</h2>
-      <p>2020 恍如隔世，60多次 commit，或许这是给 22 岁的自己一个交代吧。ambitions 架构师，冲！</p>
+      <p>2020 恍如隔世，或许这是给 22 岁的自己一个交代吧。ambitions 架构师，冲！</p>
       <p>如果您觉得这个项目对您有帮助，可以请作者吃一碗螺蛳粉表示鼓励</p>
       <div class="row justify-center">
        <q-img width="450px" :src="this.$PUBLIC_PATH + 'data/pay.png'"/>

@@ -31,6 +31,10 @@ Vue-Quasar-Manage 是一款中后台前端解决方案：
 ![electron](https://images.gitee.com/uploads/images/2021/0201/144237_25c67b18_5663937.png "elc.png")
 
 <p align="center">
+    <img src="https://images.gitee.com/uploads/images/2021/0410/165844_85bc70ef_5663937.png" alt="ios">
+</p>
+
+<p align="center">
     <img src="https://images.gitee.com/uploads/images/2021/0201/143433_c700edab_5663937.png" alt="android">
 </p>
 
@@ -93,12 +97,13 @@ async function handleKeepAlive (to) {
 - *2021/3/20*  
   - 如果路由的 roles 没有被设置或为空，则所有用户均可访问
   - 添加了后端动态获取路由的 DEMO，并提供了实现思路作为学习交流
+- *2021/4/10*
+  - 将 quasar 版本降低为 1.15.1 ，修复 ios 端 input 重复输入的问题
 
 ### 如何运行
 请确保您的计算机已经安装了 ```Node.js``` 以及 ```git```，当前项目主要用于展示说明文档
 
 建议使用模板项目 [vue-quasar-manage-template](https://github.com/972784674t/vue-quasar-manage-template)  进行开发。
-
 
 1、克隆项目
 ```sh
