@@ -18,11 +18,10 @@ Vue.prototype.$Max_KeepAlive = 10
 
 // 侧边栏底部文字
 Vue.prototype.$buttonList = [
-  { text: 'Vue', URL: 'https://cn.vuejs.org/' },
   { text: 'Quasar', URL: 'http://www.quasarchs.com/' },
   { text: 'Github', URL: 'https://github.com/972784674t/vue-quasar-manage' },
   { text: 'Gitee', URL: 'https://gitee.com/incimo/vue-quasar-manage' },
-  { text: '捐赠', URL: '/cimo' },
+  { text: 'GreaterWMS', URL: 'https://github.com/Singosgu/GreaterWMS' },
   { text: '关于作者', URL: '/cimo' }
 ]
 
