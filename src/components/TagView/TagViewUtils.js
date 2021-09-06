@@ -1,6 +1,5 @@
 import store from '../../store/index'
 import router from '../../router'
-import _this from '../../main'
 import { getFirst } from '../../utils/CloneUtils'
 
 // 构造 tag-view 的元信息，如果符合条件( 不是公共路由 )就提交到 store，生成 tagView 元素
@@ -34,16 +33,16 @@ export function removeATagView (state, payload) {
     router.push('/')
   } else {
     // 如果移除的是最后一个 tagView 则路由跳转移除后的最后一个 tagView
-    if (payload === state.tagView.length && _this.$route.path === removedTagView) {
+    if (payload === state.tagView.length && window.location.href.indexOf(removedTagView) !== -1) {
       router.push(state.tagView[payload - 1].fullPath)
       return
     }
     // 如果移除的是第一个 tagView 则路由跳转移除后的第一个 tagView
-    if (payload === 0 && _this.$route.path === removedTagView) {
+    if (payload === 0 && window.location.href.indexOf(removedTagView) !== -1) {
       router.push(state.tagView[0].fullPath)
       return
     }
-    if (_this.$route.path === removedTagView) {
+    if (window.location.href.indexOf(removedTagView) !== -1) {
       router.push(state.tagView[payload - 1].fullPath)
     }
   }

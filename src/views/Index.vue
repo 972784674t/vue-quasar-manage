@@ -3,7 +3,7 @@
 
     <!-- 头部 -->
     <q-header class="q-py-xs bg-white text-grey-8" height-hint="48"
-       style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px 0px; padding-bottom: 2px">
+       style="box-shadow: rgba(0, 0, 0, 0.1) 0 2px 12px 0; padding-bottom: 2px;">
 
       <!-- 状态栏 -->
       <q-toolbar style="margin-top: -4px;">
@@ -32,7 +32,10 @@
         show-if-above
         content-class="bg-white"
         :width="240">
-      <base-menu/>
+      <template #default>
+        <base-menu/>
+      </template>
+
     </q-drawer>
 
     <!-- 内容路由 -->

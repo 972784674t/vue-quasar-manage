@@ -157,7 +157,7 @@ export default {
       width: 3px
       height: 100%
       background: $ACTIVE_COLOR !important
-      top: -0.5px
-      right: 0px
+      top: 0
+      right: 0
 
 </style>
