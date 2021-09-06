@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0bd9e0"],{"2d80":function(e,t,n){"use strict";n.r(t),n.d(t,"getUserRouter",(function(){return u}));var o=n("017a"),r=n("2b0e");function u(){return Object(o["default"])({url:r["default"].prototype.$PUBLIC_PATH+"data/asyncRouterDemo",method:"get",responseType:"text"})}}}]);
